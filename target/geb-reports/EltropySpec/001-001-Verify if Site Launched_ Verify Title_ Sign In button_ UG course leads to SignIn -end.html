@@ -1,0 +1,406 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <meta name="robots" content="noindex,follow,noarchive,nocache" />
+  <link rel="shortcut icon" href="/assets/favicon-red-da13af66519784936300cbf3043c4dfe.ico" type="image/x-icon" />
+  <title>Eltropy Home</title>
+  
+  <meta name="layout" content="sparkwave" />
+  
+    
+  
+  <link rel="stylesheet" href="/assets/home-0d56f3095e054b8cb6cbd9d675a39fff.css" />
+  <script type="text/javascript" async="" src="//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js"></script><script src="/assets/lib/require-2.1.15.min-69ad5b08f93fae32cc51bbecaa7f598c.js" type="text/javascript" data-main="/assets/views/home.js?b=20160223000559" defer="defer"></script>
+
+  <link rel="stylesheet" href="/assets/responsive-3908aff145fed7e9ad21738af973727a.css" />
+  <script>window.ELVer = "20160223000559";</script>
+  <!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <!--[if lt IE 10]>
+    <script type="text/javascript">
+      if (document.location.pathname !== "/oldbrowser") {
+        window.location = "/oldbrowser";
+      }
+    </script>
+  <![endif]-->
+  <!-- start Mixpanel -->
+  <script type="text/javascript">
+    (function (f, b) {
+      if (!b.__SV) {
+        var a, e, i, g;
+        window.mixpanel = b;
+        b._i = [];
+        b.init = function (a, e, d) {
+          function f(b, h) {
+            var a = h.split(".");
+            2 == a.length &amp;&amp; (b = b[a[0]], h = a[1]);
+            b[h] = function () {
+              b.push([h].concat(Array.prototype.slice.call(arguments, 0)))
+            }
+          }
+
+          var c = b;
+          "undefined" !== typeof d ? c = b[d] = [] : d = "mixpanel";
+          c.people = c.people || [];
+          c.toString = function (b) {
+            var a = "mixpanel";
+            "mixpanel" !== d &amp;&amp; (a += "." + d);
+            b || (a += " (stub)");
+            return a
+          };
+          c.people.toString = function () {
+            return c.toString(1) + ".people (stub)"
+          };
+          i = ("disable track track_pageview track_links track_forms register register_once alias unregister " +
+               "identify name_tag set_config people.set people.set_once people.increment people.append " +
+               "people.track_charge people.clear_charges people.delete_user").split(" ");
+          for (g = 0; g &lt; i.length; g++)f(c, i[g]);
+          b._i.push([a, e, d])
+        };
+        b.__SV = 1.2;
+        a = f.createElement("script");
+        a.type = "text/javascript";
+        a.async = !0;
+        a.src = "//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js";
+        e = f.getElementsByTagName("script")[0];
+        e.parentNode.insertBefore(a, e)
+      }
+    })(document, window.mixpanel || []);
+    mixpanel.init('7725bb82c9d26db10a93e1a8d04104d0');
+  </script>
+  <!-- end Mixpanel -->
+<script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="/assets/views/home.js?b=20160223000559" src="/assets/views/home.js?b=20160223000559"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="/assets/config.js?b=20160223000559" src="/assets/config.js?b=20160223000559"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="/assets/common.js?b=20160223000559" src="/assets/common.js?b=20160223000559"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="jquery" src="/assets/lib/jquery-1.11.0.min.js?b=20160223000559"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="knockout" src="/assets/lib/knockout-3.2.0.min.js?b=20160223000559"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="utils/utils" src="/assets/lib/../utils/utils.js?b=20160223000559"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="domReady" src="/assets/lib/domReady-2.0.1.js?b=20160223000559"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="classie" src="/assets/lib/classie.js?b=20160223000559"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="bootstrap" src="/assets/lib/bootstrap-2.3.2.min.js?b=20160223000559"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="bootstrap-password-meter" src="/assets/lib/bootstrap-password-meter.js?b=20160223000559"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="flatNotify" src="/assets/lib/flatNotify-0.1.js?b=20160223000559"></script></head>
+<body>
+  
+  
+  
+    
+
+
+<div class="eltropy-navbar navbar navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="">
+      
+        <button type="button" id="narrowButton" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      
+      <div class="brand">
+        <div class="brand-inner-logo ">
+          
+            <a href="/?index=1" id="nav-logo">
+              Eltropy Test
+            </a>
+          
+        </div>
+      </div>
+      
+      <div class="nav-collapse collapse">
+        <ul class="nav pull-right" id="nav-dd-con">
+          
+            
+              <li class="eltropy-gb"><a href="#" class="nav-signin-button">Sign In</a></li>
+            
+          
+        </ul>
+      </div> 
+    </div>
+  </div>
+</div>
+
+  
+
+  
+  <div id="disabled-overlay">
+    <span>
+      <img src="/assets/loader-alt-2d43d78d069f2a00f008ff949cff665f.gif" height="80" width="80" />
+    </span>
+  </div>
+
+  
+  <div id="time-inactivity-overlay"></div>
+
+  
+  <div class="" id="eltropy-container">
+    
+  <div style="background: url('https://elt-static.s3.amazonaws.com/images/eltropy-def-banner1.jpg') no-repeat 50% 50% #333;
+            background-size: cover;" class="clearfix home-banner">
+  <div class="container">
+    <div class="row-fluid m-top-20">
+      <div class="span4 home-banner-text">
+        <h1 class="m-top-20" style="color: #fff">
+          Share. Collaborate. Measure.
+        </h1>
+        
+      </div>
+      <div class="span6 offset2">
+        
+      </div>
+    </div>
+  </div>
+</div>
+  <div class="row-fluid">
+    <div class="span12">
+      <div class="container el-home-container card-container">
+        <div class="row-fluid hidden-phone">
+          <div class="span3">
+            
+              
+                <a href="/topic/403087/Test-Topic-All-UG" class="card e-topic-card e-topic-card-red" data-percent-complete="0">
+                  <div class="card-heading simple" data-bind="attr:{&quot;id&quot;:&quot;topic_403087&quot;}" id="topic_403087">Test Topic All UG
+                  </div>
+                </a>
+              
+            
+          </div>
+          <div class="span3">
+            
+              
+            
+          </div>
+          <div class="span3">
+            
+              
+            
+          </div>
+          <div class="span3">
+            
+              
+            
+          </div>
+        </div>
+        <div class="row-fluid visible-phone">
+          
+            <a href="/topic/403087/Test-Topic-All-UG" class="card e-topic-card e-topic-card-red" data-percent-complete="0">
+              <div class="card-heading simple" data-bind="attr:{&quot;id&quot;:&quot;topic_403087&quot;}" id="topic_403087">Test Topic All UG
+              </div>
+            </a>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div id="signinModal" class="eltropy-modal eltropy-signin-modal modal hide fade" tabindex="-1" role="dialog" aria-labelledby="subTopicLabel" aria-hidden="true" style="display: block;">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+    </div>
+    <div class="modal-body">
+      <div id="eltropy-login-body">
+
+        
+        
+
+        <div class="row-fluid p-top-20 signin-modal-in-con" data-bind="visible: !(isSignup()) &amp;&amp; !(isSignin())">
+          <div class="row-fluid">
+            
+              <div class=" login-signin-head">
+                Sign in with
+              </div>
+            
+          </div>
+          <div class="row-fluid">
+            
+              <div class="social-auth-button soc-auth-goog" onclick="$(location).attr('href','/OAuth/googleAuth?type=login&amp;state=test.eltropy.org/dashboard');">
+                <img src="/assets/share_google_small-a0411fc279df442e85ab00c93d916b8d.png" />
+                <button class="btn eltropy-social-text eltropy-google-text">
+                  Google
+                </button>
+              </div>
+            
+            
+              <div class="m-top-20"></div>
+            
+            
+              <div class="social-auth-button soc-auth-link" onclick="window.location='/OAuth/linkedInAuth';">
+                <img src="/assets/share_linkedin_small-a6c047d0b8dc933f95f8599e18880c56.png" />
+                <button class="btn eltropy-social-text eltropy-linkedin-text">
+                  Linkedin
+                </button>
+              </div>
+            
+            
+              <div class="m-top-20"></div>
+            
+            
+              <div class="social-auth-button soc-auth-sf" onclick="window.location='/OAuth/sfAuth';">
+                <img src="/assets/share_salesforce_small-40550d6162212db46b0375c7f571aa91.png" />
+                <button class="btn eltropy-social-text eltropy-linkedin-text">
+                  Salesforce
+                </button>
+              </div>
+            
+            
+              <div class="m-top-20"></div>
+            
+          </div>
+        </div>
+        
+          
+            <div data-bind="visible: !(isSignup()) &amp;&amp; !(isSignin())">
+              <h4 class="social-or-email text-center">Or use your email address</h4>
+            </div>
+          
+          <div data-bind="visible: !(isSignup()) &amp;&amp; !(isSignin())" class="row-fluid email-signin-select-buttons">
+            <div data-bind="click: changeSigntypeToSignin" class="email-choice-button email-ch-signin">Sign in</div>
+            <div data-bind="click: changeSigntypeToSignup" class="email-choice-button email-ch-signup">Sign up</div>
+          </div>
+        
+        <div data-bind="visible: isSignin()" style="display: none" class="p-top-20">
+          <div class="row-fluid">
+            <div class=" login-signin-head">
+              Sign in
+            </div>
+          </div>
+          <div class="alert alert-error hide" id="signinErrorMessage">
+          </div>
+          <div class="error-common-message">
+            
+          </div>
+          
+          
+          
+          <form action="/auth/signin" method="post" class="sign-gform">
+            <div>
+              <input type="email" id="signin-email" required="" placeholder="Email Address" name="email" value="" class="input-block-level eltropy-padded-input" />
+              <input type="password" id="signin-password" required="" placeholder="Password" name="password" class="input-block-level eltropy-padded-input" />
+            </div>
+            <div class="row-fluid m-top-20">
+              <button class="btn btn-large btn-primary pull-right" style="width:100%" id="eltropy-login-btn" type="submit">
+                Login
+              </button>
+            </div>
+            <div class="row-fluid m-top-20">
+              <button class="btn btn-large eltropy-forgot-passwd-btn" type="button" data-bind="click: resetSignType">
+                Back
+              </button>
+              <button onclick="window.location='/Auth/resetPassword';" type="button" id="eltropy-forgot-passwd-btn" class="btn btn-large eltropy-forgot-passwd-btn pull-right">
+                Forgot Password?
+              </button>
+            </div>
+          </form>
+        </div>
+        <div data-bind="visible: isSignup()" style="display: none;" class="p-top-20">
+          <div class="row-fluid">
+            <div class=" login-signin-head">
+              Sign up
+            </div>
+          </div>
+          <div class="alert alert-error hide" id="signupErrorMessage">
+          </div>
+          <div class="error-common-message sign-up">
+            
+          </div>
+          <form action="/auth/signup" method="post" class="sign-gform">
+            <div id="signup-form">
+              <input type="text" required="" id="signup-name" class="input-block-level eltropy-padded-input pull-left" name="name" value="" placeholder="Full name" />
+              <input type="email" required="" id="signup-email" class="input-block-level eltropy-padded-input" name="emailId" value="" placeholder="Email address" />
+              <input type="password" required="" id="signup-password" class="input-block-level eltropy-padded-input" name="password" pattern=".{8,}" value="" placeholder="Password" />
+              <div class="pwdstrengthWrap hide">
+                <div class="verdict-wrap"></div>
+                <div class="progress-wrap"><div class="progress"><div class="bar" style="width: 0%;"></div></div></div>
+              </div>
+            </div>
+            <div class="row-fluid signup-footer-button m-top-20">
+              <button class="btn btn-large eltropy-forgot-passwd-btn" type="button" data-bind="click: resetSignType">
+                Back
+              </button>
+              <button class="btn btn-large btn-primary pull-right" id="eltropy-signup-btn" type="submit">
+                Submit
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  </div>
+
+  
+  
+
+  
+  
+    
+      <div id="feedbackCon">
+        <div id="feedback-btn">
+          <i class="icon-edit"></i>
+          <div>FEEDBACK</div>
+        </div>
+        <div id="feedback-form" class="span4">
+          <div class="alert alert-success fade in">
+            Your feedback has been successfully submitted.
+          </div>
+          <div class="alert alert-error fade in">
+            There was an error in submitting your feedback, please retry.
+          </div>
+          <form class="eltropy-classic-form">
+            <div class="control-group">
+              <div class="controls row-fluid">
+                <h5>Name *</h5>
+                <input type="text" id="inputName" placeholder="Name" class="span12 purpleInput" value="" />
+              </div>
+            </div>
+            <div class="control-group">
+              <div class="controls row-fluid">
+                <h5>Email ID *</h5>
+                <input type="text" id="inputEmail" placeholder="Email" class="span12 purpleInput" value="" />
+              </div>
+            </div>
+            <div class="control-group">
+              <div class="controls row-fluid">
+                <h5>Category</h5>
+                <select id="inputCategory" class="span12">
+                  <option value="Query">Query</option>
+                  <option value="Issue">Issue</option>
+                  <option value="Like">Like</option>
+                  <option value="Suggestion">Suggestion</option>
+                </select>
+              </div>
+            </div>
+            <div class="control-group">
+              <div class="controls row-fluid">
+                <h5>Feedback *</h5>
+                <textarea placeholder="Feedback" class="span12 purpleInput" id="feedbackText"></textarea>
+              </div>
+            </div>
+            <div class="row-fluid feedback-button-con">
+              <div class="btn btn-primary span4 offset2" id="feedback-submit-btn">Submit</div>
+              <div class="btn span4 cancel-btn">Cancel</div>
+            </div>
+          </form>
+        </div>
+      </div>
+        
+  
+
+  
+  <script>
+    if (document.getElementById('iconNavBar')) {
+      document.getElementById('iconNavBar').style.right = document.getElementById("nav-dd-con").offsetWidth+"px";
+    }
+  </script>
+
+  
+  
+  
+  <script type="text/javascript">
+    mixpanel.set_config({ cross_subdomain_cookie: false });
+    mixpanel.register({ "ip-address" : "45.112.138.78" });
+    
+    
+    
+    mixpanel.track_links("#nav-logo", "clicked nav logo");
+    mixpanel.track_links("#nav-dashboard-icon", "clicked nav dashboard");
+    mixpanel.track_links("#nav-analytics-icon", "clicked nav analytics");
+    mixpanel.track_links("#nav-settings-icon", "clicked nav settings");
+  </script>
+
+
+<div class="modal-backdrop fade in"></div></body></html>

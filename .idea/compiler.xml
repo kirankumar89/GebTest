@@ -26,6 +26,8 @@
         <module name="GebTest" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="geb-examples" target="1.5" />
+    </bytecodeTargetLevel>
   </component>
 </project>
-

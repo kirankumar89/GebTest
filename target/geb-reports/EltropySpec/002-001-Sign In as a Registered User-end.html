@@ -1,0 +1,2984 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <meta name="robots" content="noindex,follow,noarchive,nocache" />
+  <link rel="shortcut icon" href="/assets/favicon-red-da13af66519784936300cbf3043c4dfe.ico" type="image/x-icon" />
+  <title>Dashboard</title>
+  
+  <meta name="layout" content="sparkwave" />
+  
+    
+  
+  <link rel="stylesheet" href="/assets/dashboard-ecad8f0855b9374378fb819f20adb4ec.css" />
+  <script type="text/javascript" async="" src="//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js"></script><script src="/assets/lib/require-2.1.15.min-69ad5b08f93fae32cc51bbecaa7f598c.js" type="text/javascript" data-main="/assets/views/dashboard.js?b=20160223000559" defer="defer"></script>
+
+  <link rel="stylesheet" href="/assets/responsive-3908aff145fed7e9ad21738af973727a.css" />
+  <script>window.ELVer = "20160223000559";</script>
+  <!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <!--[if lt IE 10]>
+    <script type="text/javascript">
+      if (document.location.pathname !== "/oldbrowser") {
+        window.location = "/oldbrowser";
+      }
+    </script>
+  <![endif]-->
+  <!-- start Mixpanel -->
+  <script type="text/javascript">
+    (function (f, b) {
+      if (!b.__SV) {
+        var a, e, i, g;
+        window.mixpanel = b;
+        b._i = [];
+        b.init = function (a, e, d) {
+          function f(b, h) {
+            var a = h.split(".");
+            2 == a.length &amp;&amp; (b = b[a[0]], h = a[1]);
+            b[h] = function () {
+              b.push([h].concat(Array.prototype.slice.call(arguments, 0)))
+            }
+          }
+
+          var c = b;
+          "undefined" !== typeof d ? c = b[d] = [] : d = "mixpanel";
+          c.people = c.people || [];
+          c.toString = function (b) {
+            var a = "mixpanel";
+            "mixpanel" !== d &amp;&amp; (a += "." + d);
+            b || (a += " (stub)");
+            return a
+          };
+          c.people.toString = function () {
+            return c.toString(1) + ".people (stub)"
+          };
+          i = ("disable track track_pageview track_links track_forms register register_once alias unregister " +
+               "identify name_tag set_config people.set people.set_once people.increment people.append " +
+               "people.track_charge people.clear_charges people.delete_user").split(" ");
+          for (g = 0; g &lt; i.length; g++)f(c, i[g]);
+          b._i.push([a, e, d])
+        };
+        b.__SV = 1.2;
+        a = f.createElement("script");
+        a.type = "text/javascript";
+        a.async = !0;
+        a.src = "//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js";
+        e = f.getElementsByTagName("script")[0];
+        e.parentNode.insertBefore(a, e)
+      }
+    })(document, window.mixpanel || []);
+    mixpanel.init('7725bb82c9d26db10a93e1a8d04104d0');
+  </script>
+  <!-- end Mixpanel -->
+<script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="/assets/views/dashboard.js?b=20160223000559" src="/assets/views/dashboard.js?b=20160223000559"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="/assets/config.js?b=20160223000559" src="/assets/config.js?b=20160223000559"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="/assets/common.js?b=20160223000559" src="/assets/common.js?b=20160223000559"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="jquery" src="/assets/lib/jquery-1.11.0.min.js?b=20160223000559"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="knockout" src="/assets/lib/knockout-3.2.0.min.js?b=20160223000559"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="vModels/discussionsViewModel" src="/assets/lib/../viewModels/discussionsViewModel.js?b=20160223000559"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="vModels/dashboardViewModel" src="/assets/lib/../viewModels/dashboardViewModel.js?b=20160223000559"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="vModels/emailViewModel" src="/assets/lib/../viewModels/emailViewModel.js?b=20160223000559"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="vModels/activityViewModel" src="/assets/lib/../viewModels/activityViewModel.js?b=20160223000559"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="hogan" src="/assets/lib/hogan-3.0.1.js?b=20160223000559"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="angCtrls/EmailCampaignCtrl" src="/assets/lib/../angular/controllers/EmailCampaignCtrl.js?b=20160223000559"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="angSrvc/EmailCampaignService" src="/assets/lib/../angular/services/EmailCampaignService.js?b=20160223000559"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="angCtrls/CollateralMapCtrl" src="/assets/lib/../angular/controllers/CollateralMapCtrl.js?b=20160223000559"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="angSrvc/CollateralMapService" src="/assets/lib/../angular/services/CollateralMapService.js?b=20160223000559"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="angCtrls/SubmissionsCtrl" src="/assets/lib/../angular/controllers/SubmissionsCtrl.js?b=20160223000559"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="angSrvc/SubmissionsService" src="/assets/lib/../angular/services/SubmissionsService.js?b=20160223000559"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="utils/utils" src="/assets/lib/../utils/utils.js?b=20160223000559"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="underscore" src="/assets/lib/../utils/underscore-1.8.3.min.js?b=20160223000559"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="jszip" src="/assets/lib/jszip.js?b=20160223000559"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="angular" src="/assets/lib/../angular/angular-1.3.15.min.js?b=20160223000559"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="spin" src="/assets/lib/ladda_spinner/spin.min.js?b=20160223000559"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="jquery.ui.sortable" src="/assets/lib/jqueryui/sortable.js?b=20160223000559"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="classie" src="/assets/lib/classie.js?b=20160223000559"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="tiny_mce" src="/js/lib/tiny_mce/tinymce.min.js?b=20160223000559"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="bootstrap" src="/assets/lib/bootstrap-2.3.2.min.js?b=20160223000559"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="jquery.history" src="/assets/lib/jquery.history.js?b=20160223000559"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="jquery.fileupload" src="/assets/lib/jquery_file_upload/jquery.fileupload.js?b=20160223000559"></script></head>
+<body>
+  
+  
+  
+    
+
+
+<div class="eltropy-navbar navbar navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="">
+      
+        <button type="button" id="narrowButton" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      
+      <div class="brand">
+        <div class="brand-inner-logo ">
+          
+            <a href="/?index=1" id="nav-logo">
+              Eltropy Test
+            </a>
+          
+        </div>
+      </div>
+      
+        
+          <a id="nav-dashboard-icon" href="/dashboard" data-toggle="tooltip" data-animation="false" data-original-title="My Dashboard" data-placement="bottom">
+            <img src="/assets/nav-dash-icon-18cc3faa400b2400d2ce54163e80c6d8.png" />
+          </a>
+        
+        <div class="icon-nav-bar hidden-phone" id="iconNavBar" style="right: 88px;">
+          <ul>
+            
+            
+            
+          </ul>
+        </div>
+      
+      <div class="nav-collapse collapse">
+        <ul class="nav pull-right" id="nav-dd-con">
+          
+            <li class="dropdown">
+              <a href="#" id="user-dropdown" class="dropdown-toggle" data-toggle="dropdown" role="button">
+                kiran <b class="caret"></b>
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="user-dropdown" role="menu">
+                
+                
+                <li><a href="/profile" id="nav-account-button">Profile</a></li>
+                <li><a href="/auth/logout" id="nav-logout-button">Logout</a></li>
+                
+              </ul>
+            </li>
+          
+        </ul>
+      </div> 
+    </div>
+  </div>
+</div>
+
+  
+
+  
+  <div id="disabled-overlay" style="display: block;">
+    <span>
+      <img src="/assets/loader-alt-2d43d78d069f2a00f008ff949cff665f.gif" height="80" width="80" />
+    </span>
+  </div>
+
+  
+  <div id="time-inactivity-overlay"></div>
+
+  
+  <div class="" id="eltropy-container">
+    
+  <script type="text/javascript">
+    document.getElementById('disabled-overlay').style.display = 'block';
+  </script>
+  <div class="container-fluid admin-con user-dash-tab-con" id="ndashboard">
+    <div class="row-fluid">
+      <div class="tabbable tabs-left row-fluid manageTabs">
+        <ul class="nav nav-tabs">
+          
+          
+          
+          
+            <li class="">
+              <a id="modulesTab" href="#lE" data-toggle="tab" onclick="switchDashTab(this)">
+                <i class="icon-folder-open icon-3x"></i>
+                MODULES
+              </a>
+            </li>
+          
+
+          
+          
+
+          
+          
+            <li class="">
+              <a href="#lB" id="submissionsTab" data-toggle="tab" onclick="switchDashTab(this)">
+                <i class="icon-rocket icon-3x"></i>
+                SUBMISSIONS
+              </a>
+            </li>
+          
+
+          
+          
+
+          
+          
+            <li class="">
+              <a href="#lG" id="activityTab" data-toggle="tab" onclick="updateHistory(this)">
+                <i class="icon-calendar icon-3x"></i>
+                ACTIVITY
+              </a>
+            </li>
+          
+
+          
+          
+          <li class="">
+            <a href="#lH" id="emailCampaignTab" data-toggle="tab" onclick="updateHistory(this)">
+              <i class="icon-envelope icon-3x"></i>
+              EMAIL CAMPAIGNS
+            </a>
+          </li>
+          
+
+          
+          
+
+          
+        </ul>
+        <div class="tab-content">
+          
+          
+
+          
+          
+            <div class="tab-pane row-fluid" id="lE">
+  <div class="formPane js-module-content" data-bind="event: { scroll: function($data, event) {infiniteScroll(event);} }">
+    
+    
+      <div class="container-fluid userDashboard" data-bind="visible: !moduleEditMode()">
+        <!-- This is full width search tab will be visible on mobile and modules pages-->
+
+        <!-- ko if: (!isEnableArchiveTab() &&  (!$root.domainSettings().enableArchiveTopic || ($root.domainSettings().enableArchiveTopic))) || isMobile()-->
+          <div class="row-fluid topic-search-con m-top-20">
+            <div class="row-fluid">
+              <input placeholder="Search" type="search" name="q" data-bind="value: query, valueUpdate: 'keyup'" autocomplete="off" class="row-fluid topic-search" />
+              <i class="icon-search"></i>
+            </div>
+            <!-- <div class="search-dropdown row-fluid" data-bind="visible: (query() != '' && showResults())">
+              <div data-bind="template: { name: 'search-result-template', foreach:searchResults }"></div>
+                <div class="search-result clearfix" data-bind="visible: searchResults().length == 0" style="display: none;">
+                  <span class="topic-title">No matches</span>
+                </div>
+            </div> -->
+          </div>
+        <!-- /ko -->
+
+        <!-- This is the Tab in topics page which will be displayed when archive setting is disabled -->
+
+        <!-- ko if: !$root.domainSettings().enableArchiveTopic && isEnableArchiveTab() -->
+          <div class="hidden-phone row-fluid topic-search-con m-top-20">
+            <div class="topic-search-wrapper" data-bind="css: showNewTopicButtonOnTopicDashboard() ? 'span9' : 'span12'">
+              <div class="search-wrapper">
+                <input placeholder="Search" type="search" name="q" data-bind="value: query, valueUpdate: 'keyup'" autocomplete="off" class="row-fluid topic-search" />
+                <i class="icon-search"></i>
+                <!-- <div class="search-dropdown" data-bind="visible: (query() != '' && showResults())" id="topicSearchCon">
+                  <div data-bind="template: { name: 'search-result-template', foreach:searchResults }"></div>
+                  <div class="search-result clearfix" data-bind="visible: searchResults().length == 0" style="display: none;">
+                    <span class="topic-title">No matches</span>
+                  </div>
+                </div> -->
+              </div>
+            </div>
+            <!-- ko if: showNewTopicButtonOnTopicDashboard -->
+              <div class="span3 hidden-phone">
+                <button data-bind="click: addTopic" class="btn e-icon-a add-topic-btn">
+                  + New Topic
+                </button>
+              </div>
+            <!-- /ko -->
+          </div>
+        <!-- /ko -->
+
+        <!-- This is the Tab in topics page which will be displayed when archive setting is enabled -->
+
+        <!-- ko if: $root.domainSettings().enableArchiveTopic && isEnableArchiveTab() -->
+          <div class="hidden-phone row-fluid topic-search-con m-top-20">
+            <ul class="topics-nav span4">
+              <li class="span6" data-bind="click: function(){toggleTopics(true)} ,css: showActivePlans()? 'active': ''">
+                Published Topics
+                <span class="count-pill count-pill__published" data-bind="text: activePlansLength()"></span>
+              </li>
+              <li class="span6" data-bind="click: function(){toggleTopics(false)}, css: showActivePlans()? '': 'active'">
+                Archived Topics
+                <span class="count-pill count-pill__archive" data-bind="text: inactivePlansLength()"></span>
+              </li>
+            </ul>
+            <div class="topic-search-wrapper" data-bind="css: showNewTopicButtonOnTopicDashboard() ? 'span5' : 'span8'">
+              <div class="search-wrapper">
+                <input placeholder="Search" type="search" name="q" data-bind="value: query, valueUpdate: 'keyup'" autocomplete="off" class="row-fluid topic-search" />
+                <i class="icon-search"></i>
+                <!-- <div class="search-dropdown" data-bind="visible: (query() != '' && showResults())" id="topicSearchCon">
+                  <div data-bind="template: { name: 'search-result-template', foreach:searchResults }"></div>
+                  <div class="search-result clearfix" data-bind="visible: searchResults().length == 0" style="display: none;">
+                    <span class="topic-title">No matches</span>
+                  </div>
+                </div> -->
+              </div>
+            </div>
+            <!-- ko if: showNewTopicButtonOnTopicDashboard -->
+              <div class="span3 hidden-phone">
+                <button data-bind="click: addTopic" class="btn e-icon-a add-topic-btn">
+                  + New Topic
+                </button>
+              </div>
+            <!-- /ko -->
+          </div>
+        <!-- /ko -->
+      </div>
+    
+    <div class="container-fluid userDashboard" id="modulesGroupCon" style="display: none" data-bind="visible: moduleEditMode() ? false : ( enableModulesGroups() ? !activeModuleGroup() &amp;&amp; !activeModule() : false )">
+      <!-- ko if: !$root.showSearchPane() && !$root.isSearchLoading() -->
+        
+        <div class="hidden-phone row-fluid">
+          <div class="span6">
+            <!-- ko foreach : moduleGroups -->
+              <!-- ko if : $index()%2 == 0 -->
+                <div data-bind="template: { name: 'module-group-template', data: $data }"></div>
+              <!-- /ko -->
+            <!-- /ko -->
+          </div>
+          <div class="span6">
+            <!-- ko foreach : moduleGroups -->
+              <!-- ko if : $index()%2 == 1 -->
+                <div data-bind="template: { name: 'module-group-template', data: $data }"></div>
+              <!-- /ko -->
+            <!-- /ko -->
+          </div>
+        </div>
+      <!-- /ko -->
+      <div class="row-fluid" data-bind="visible: $root.showSearchPane() &amp;&amp; !$root.isSearchLoading()">
+        <div class="row-fluid search-result-count">
+          <h3 data-bind="text: searchResults().length + ((searchResults().length &gt; 1) ? ' Results' : ' Result')"></h3>
+        </div>
+        <div class="search-container" data-bind="visible: (query().length &gt; 0) &amp;&amp; (searchResults().length &gt; 0)">
+          <div class="span12 search-category" data-bind="visible: $root.showTitleSearch">
+            <div class="span2 search-category-name">
+              <h4>Title</h4>
+              <div class="totalSearch"><h5 data-bind="text: searchTitleResults().length + ((searchTitleResults().length &gt; 1) ? ' matches found' : ' match found')">matches found </h5></div>
+            </div>
+            <div class="span10">
+              <!-- ko foreach: searchTitleResults -->
+                <!-- ko if: $index() < 4 -->
+                  <div class="span12 search-category-container">
+                    <a data-bind="attr: { href: (contentStatus == 'DISABLED') ? '#' : url},
+                                        style: { cursor: (contentStatus == 'DISABLED') ? 'default' : 'pointer' }">
+                      <div class="span8 search-category-content">
+                        <h5 data-bind="text: $data.displayText" class="wordBreak"></h5>
+                        <span data-bind="text: type" class="search-result-type"></span>
+                        <span data-bind="if: contentStatus == 'DISABLED'" class="archived-result-type" data-toggle="tooltip" data-placement="right" data-original-title="This Topic has been archived, please restore the topic to view its content.">Archived</span>
+                      </div>
+                      <div class="span4 search-result-hierarchy">
+                        <h5 data-bind="text: topicName" class="search-topic-name wordBreak"></h5>
+                        <span data-bind="if: type == 'Chapter'"><h5 data-bind="text: '&gt; ' + subTopicName" class="search-subtopic-name wordBreak"></h5></span>
+                      </div>
+                    </a>
+                  </div>
+                <!-- /ko -->
+              <!-- /ko -->
+              <!-- ko if: showMoreTitleResults -->
+                <!-- ko foreach: slicedTitleResults -->
+                  <div class="span12 search-category-container">
+                    <a data-bind="attr: { href: (contentStatus == 'DISABLED') ? '#' : url},
+                                        style: { cursor: (contentStatus == 'DISABLED') ? 'default' : 'pointer' }">
+                      <div class="span8 search-category-content">
+                        <h5 data-bind="text: $data.displayText" class="wordBreak"></h5>
+                        <span data-bind="text: type" class="search-result-type"></span>
+                        <span data-bind="if: contentStatus == 'DISABLED'" class="archived-result-type" data-toggle="tooltip" data-placement="right" data-original-title="This Topic has been archived, please restore the topic to view its content.">Archived</span>
+                      </div>
+                      <div class="span4 search-result-hierarchy">
+                        <h5 data-bind="text: topicName" class="search-topic-name wordBreak"></h5>
+                        <span data-bind="if: type == 'Chapter'"><h5 data-bind="text: '&gt; ' + subTopicName" class="search-subtopic-name wordBreak"></h5></span>
+                      </div>
+                    </a>
+                  </div>
+                <!-- /ko -->
+              <!-- /ko -->
+              <!-- ko if: searchTitleResults().length > 4 -->
+                <div class="span12 search-show-more-container" data-bind="visible: showMoreTitleButton()">
+                  <h5 data-bind="click : function() { $root.showMoreTitleSearchResults() }">Show more</h5>
+                </div>
+              <!-- /ko -->
+            </div>
+          </div>
+          <div class="span12 search-category" data-bind="visible: $root.showTagSearch">
+            <div class="span2 search-category-name">
+              <h4>Tag</h4>
+              <div class="totalSearch"><h5 data-bind="text: searchTagResults().length + ((searchTagResults().length &gt; 1) ? ' matches found' : ' match found')">matches found </h5></div>
+            </div>
+
+            <div class="span10">
+              <!-- ko foreach: searchTagResults -->
+                <!-- ko if: $index() < 4 -->
+                  <div class="span12 search-category-container">
+                    <a data-bind="attr: { href: (contentStatus == 'DISABLED') ? '#' : url},
+                                        style: { cursor: (contentStatus == 'DISABLED') ? 'default' : 'pointer' }">
+                      <div class="span8 search-category-content">
+                      <span class="chapterIcon" data-bind="css: $root.getMediaTagIcon(mediaTag)"></span>
+                        <h5 data-bind="text: $data.displayText" class="wordBreak"></h5>
+                        <span data-bind="text: tag" class="search-result-type"></span>
+                        <span data-bind="if: contentStatus == 'DISABLED'" class="archived-result-type" data-toggle="tooltip" data-placement="right" data-original-title="This Topic has been archived, please restore the topic to view its content.">Archived</span>
+                      </div>
+                      <div class="span4 search-result-hierarchy">
+                        <h5 data-bind="text: topicName" class="search-topic-name wordBreak"></h5>
+                        <span data-bind="if: type == 'Chapter'"><h5 data-bind="text: '&gt; ' + subTopicName" class="search-subtopic-name wordBreak"></h5></span>
+                      </div>
+                    </a>
+                  </div>
+                <!-- /ko -->
+              <!-- /ko -->
+              <!-- ko if: showMoreTagResults -->
+                <!-- ko foreach: slicedTagResults -->
+                  <div class="span12 search-category-container">
+                    <a data-bind="attr: { href: (contentStatus == 'DISABLED') ? '#' : url},
+                                        style: { cursor: (contentStatus == 'DISABLED') ? 'default' : 'pointer' }">
+                      <div class="span8 search-category-content">
+                      <span class="chapterIcon" data-bind="css: $root.getMediaTagIcon(mediaTag)"></span>
+                        <h5 data-bind="text: $data.displayText" class="wordBreak"></h5>
+                        <span data-bind="text: tag" class="search-result-type"></span>
+                        <span data-bind="if: contentStatus == 'DISABLED'" class="archived-result-type" data-toggle="tooltip" data-placement="right" data-original-title="This Topic has been archived, please restore the topic to view its content.">Archived</span>
+                      </div>
+                      <div class="span4 search-result-hierarchy">
+                        <h5 data-bind="text: topicName" class="search-topic-name wordBreak"></h5>
+                        <span data-bind="if: type == 'Chapter'"><h5 data-bind="text: '&gt; ' + subTopicName" class="search-subtopic-name wordBreak"></h5></span>
+                      </div>
+                    </a>
+                  </div>
+                <!-- /ko -->
+              <!-- /ko -->
+              <!-- ko if: searchTagResults().length > 4 -->
+                <div class="span12 search-show-more-container" data-bind="visible: $root.showMoreTagButton()">
+                    <h5 data-bind="click : function() { $root.showMoreTagSearchResults() }">Show more</h5>
+                </div>
+              <!-- /ko -->
+            </div>
+          </div>
+          <div class="span12 search-category content-search-category" data-bind="visible: $root.showContentSearch">
+            <div class="span2 search-category-name">
+              <h4>Content</h4>
+              <div class="totalSearch"><h5 data-bind="text: searchContentResults().length + ((searchContentResults().length &gt; 1) ? ' matches found' : ' match found')">matches found </h5></div>
+            </div>
+            <div class="span10">
+              <!-- ko foreach: searchContentResults -->
+                <!-- ko if: $index() < 4 -->
+                  <div class="span12 search-category-container">
+                    <a data-bind="attr: { href: (contentStatus == 'DISABLED') ? '#' : url},
+                                        style: { cursor: (contentStatus == 'DISABLED') ? 'default' : 'pointer' }">
+                      <div class="span8 search-category-content">
+                        <span class="chapterIcon" data-bind="css: $root.getMediaTagIcon(mediaTag)"></span>
+                        <h5 data-bind="text: $data.displayText" class="wordBreak"></h5>
+                        <span data-bind="if: contentStatus == 'DISABLED'" class="archived-result-type" data-toggle="tooltip" data-placement="right" data-original-title="This Topic has been archived, please restore the topic to view its content.">Archived</span>
+                        <div class="search-text" data-bind="html: highlightText[0]"></div>
+                      </div>
+                      <div class="span4 search-result-hierarchy">
+                        <h5 data-bind="text: topicName" class="search-topic-name wordBreak"></h5>
+                        <span data-bind="if: type == 'Chapter'"><h5 data-bind="text: '&gt; ' +  subTopicName" class="search-subtopic-name wordBreak"></h5></span>
+                      </div>
+                    </a>
+                  </div>
+                <!-- /ko -->
+              <!-- /ko -->
+              <!-- ko if: showMoreContentResults -->
+                <!-- ko foreach: slicedContentResults -->
+                  <div class="span12 search-category-container">
+                    <a data-bind="attr: { href: (contentStatus == 'DISABLED') ? '#' : url},
+                                        style: { cursor: (contentStatus == 'DISABLED') ? 'default' : 'pointer' }">
+                      <div class="span8 search-category-content">
+                        <span class="chapterIcon" data-bind="css: $root.getMediaTagIcon(mediaTag)"></span>
+                        <h5 data-bind="text: $data.displayText" class="wordBreak"></h5>
+                        <span data-bind="if: contentStatus == 'DISABLED'" class="archived-result-type" data-toggle="tooltip" data-placement="right" data-original-title="This Topic has been archived, please restore the topic to view its content.">Archived</span>
+                        <div class="search-text" data-bind="html: highlightText[0]"></div>
+                      </div>
+                      <div class="span4 search-result-hierarchy">
+                        <h5 data-bind="text: topicName" class="search-topic-name wordBreak"></h5>
+                        <span data-bind="if: type == 'Chapter'"><h5 data-bind="text: '&gt; ' + subTopicName" class="search-subtopic-name wordBreak"></h5></span>
+                      </div>
+                    </a>
+                  </div>
+                <!-- /ko -->
+              <!-- /ko -->
+              <!-- ko if: searchContentResults().length > 4 -->
+                <div class="span12 search-show-more-container" data-bind="visible: $root.showMoreContentButton()">
+                    <h5 data-bind="click : function() { $root.showMoreContentSearchResults() }">Show more</h5>
+                </div>
+              <!-- /ko -->
+            </div>
+          </div>
+        </div>
+        <div class="search-empty-container" data-bind="visible: (query().length &gt; 0) &amp;&amp; (searchResults().length == 0)">
+          <div class="search-empty">
+            <h4>No matches found</h4>
+          </div>
+        </div>
+      </div>
+      <div class="row-fluid" data-bind="visible: $root.isSearchLoading()">
+        <div class="hidden-phone span12 loader">
+          <img src="/assets/loader-alt-2d43d78d069f2a00f008ff949cff665f.gif" height="70" width="70" />
+        </div>
+      </div>
+      <div class="visible-phone row-fluid">
+        <!-- ko foreach : moduleGroups -->
+          <div data-bind="template: { name: 'module-group-template', data: $data }"></div>
+        <!-- /ko -->
+      </div>
+    </div>
+    
+    <div class="container-fluid userDashboard" id="modulesCon" style="display: none" data-bind="visible: moduleEditMode() ? false : ( enableModulesGroups() ? activeModuleGroup() &amp;&amp; !activeModule() : !activeModule() ) ">
+      <!-- ko if: !$root.showSearchPane() && !$root.isSearchLoading() -->
+        <div class="row-fluid m-top-20 module-details-con">
+          <div class="module-title">
+            <h3 class="pull-left">
+              <!-- ko if: enableModulesGroups -->
+                <span class="title breadcrumb-btn" data-bind="click: selectModulesHome">Module Groups</span> 
+                <div style="display: inline-block">
+                  <i class="icon-chevron-right"></i>
+                  <span class="title breadcrumb-active" data-bind="text: activeModuleGroup()"></span>
+                </div>
+              <!-- /ko -->
+              <!-- ko if: !enableModulesGroups() -->
+                <span class="title">Modules</span>
+              <!-- /ko -->
+            </h3>
+            
+          </div>
+        </div>
+        <div class="row-fluid hidden-phone">
+          <div class="span6">
+            <!-- ko foreach : enableModulesGroups() ? filteredModules : modules -->
+              <!-- ko if : $index()%2 == 0 -->
+                <div data-bind="template: { name: 'module-template', data: $data }"></div>
+              <!-- /ko -->
+            <!-- /ko -->
+          </div>
+          <div class="span6">
+            <!-- ko foreach : enableModulesGroups() ? filteredModules : modules -->
+              <!-- ko if : $index()%2 == 1 -->
+                <div data-bind="template: { name: 'module-template', data: $data }"></div>
+              <!-- /ko -->
+            <!-- /ko -->
+          </div>
+          <div class="hidden-phone span12 loader">
+            <img src="/assets/loader-alt-2d43d78d069f2a00f008ff949cff665f.gif" height="70" width="70" data-bind="visible: isBusyFetchingModules()" />
+          </div>
+        </div>
+      <!-- /ko -->
+      <div class="row-fluid" data-bind="visible: $root.showSearchPane() &amp;&amp; !$root.isSearchLoading()">
+        <div class="row-fluid search-result-count">
+          <h3 data-bind="text: searchResults().length + ((searchResults().length &gt; 1) ? ' Results' : ' Result')"></h3>
+        </div>
+        <div class="search-container" data-bind="visible: (query().length &gt; 0) &amp;&amp; (searchResults().length &gt; 0)">
+          <div class="span12 search-category" data-bind="visible: $root.showTitleSearch">
+            <div class="span2 search-category-name">
+              <h4>Title</h4>
+              <div class="totalSearch"><h5 data-bind="text: searchTitleResults().length + ((searchTitleResults().length &gt; 1) ? ' matches found' : ' match found')">matches found </h5></div>
+            </div>
+            <div class="span10">
+              <!-- ko foreach: searchTitleResults -->
+                <!-- ko if: $index() < 4 -->
+                  <div class="span12 search-category-container">
+                    <a data-bind="attr: { href: (contentStatus == 'DISABLED') ? '#' : url},
+                                        style: { cursor: (contentStatus == 'DISABLED') ? 'default' : 'pointer' }">
+                      <div class="span8 search-category-content">
+                        <h5 data-bind="text: $data.displayText" class="wordBreak"></h5>
+                        <span data-bind="text: type" class="search-result-type"></span>
+                        <span data-bind="if: contentStatus == 'DISABLED'" class="archived-result-type" data-toggle="tooltip" data-placement="right" data-original-title="This Topic has been archived, please restore the topic to view its content.">Archived</span>
+                      </div>
+                      <div class="span4 search-result-hierarchy">
+                        <h5 data-bind="text: topicName" class="search-topic-name wordBreak"></h5>
+                        <span data-bind="if: type == 'Chapter'"><h5 data-bind="text: '&gt; ' + subTopicName" class="search-subtopic-name wordBreak"></h5></span>
+                      </div>
+                    </a>
+                  </div>
+                <!-- /ko -->
+              <!-- /ko -->
+              <!-- ko if: showMoreTitleResults -->
+                <!-- ko foreach: slicedTitleResults -->
+                  <div class="span12 search-category-container">
+                    <a data-bind="attr: { href: (contentStatus == 'DISABLED') ? '#' : url},
+                                        style: { cursor: (contentStatus == 'DISABLED') ? 'default' : 'pointer' }">
+                      <div class="span8 search-category-content">
+                        <h5 data-bind="text: $data.displayText" class="wordBreak"></h5>
+                        <span data-bind="text: type" class="search-result-type"></span>
+                        <span data-bind="if: contentStatus == 'DISABLED'" class="archived-result-type" data-toggle="tooltip" data-placement="right" data-original-title="This Topic has been archived, please restore the topic to view its content.">Archived</span>
+                      </div>
+                      <div class="span4 search-result-hierarchy">
+                        <h5 data-bind="text: topicName" class="search-topic-name wordBreak"></h5>
+                        <span data-bind="if: type == 'Chapter'"><h5 data-bind="text: '&gt; ' + subTopicName" class="search-subtopic-name wordBreak"></h5></span>
+                      </div>
+                    </a>
+                  </div>
+                <!-- /ko -->
+              <!-- /ko -->
+              <!-- ko if: searchTitleResults().length > 4 -->
+                <div class="span12 search-show-more-container" data-bind="visible: showMoreTitleButton()">
+                  <h5 data-bind="click : function() { $root.showMoreTitleSearchResults() }">Show more</h5>
+                </div>
+              <!-- /ko -->
+            </div>
+          </div>
+          <div class="span12 search-category" data-bind="visible: $root.showTagSearch">
+            <div class="span2 search-category-name">
+              <h4>Tag</h4>
+              <div class="totalSearch"><h5 data-bind="text: searchTagResults().length + ((searchTagResults().length &gt; 1) ? ' matches found' : ' match found')">matches found </h5></div>
+            </div>
+
+            <div class="span10">
+              <!-- ko foreach: searchTagResults -->
+                <!-- ko if: $index() < 4 -->
+                  <div class="span12 search-category-container">
+                    <a data-bind="attr: { href: (contentStatus == 'DISABLED') ? '#' : url},
+                                        style: { cursor: (contentStatus == 'DISABLED') ? 'default' : 'pointer' }">
+                      <div class="span8 search-category-content">
+                      <span class="chapterIcon" data-bind="css: $root.getMediaTagIcon(mediaTag)"></span>
+                        <h5 data-bind="text: $data.displayText" class="wordBreak"></h5>
+                        <span data-bind="text: tag" class="search-result-type"></span>
+                        <span data-bind="if: contentStatus == 'DISABLED'" class="archived-result-type" data-toggle="tooltip" data-placement="right" data-original-title="This Topic has been archived, please restore the topic to view its content.">Archived</span>
+                      </div>
+                      <div class="span4 search-result-hierarchy">
+                        <h5 data-bind="text: topicName" class="search-topic-name wordBreak"></h5>
+                        <span data-bind="if: type == 'Chapter'"><h5 data-bind="text: '&gt; ' + subTopicName" class="search-subtopic-name wordBreak"></h5></span>
+                      </div>
+                    </a>
+                  </div>
+                <!-- /ko -->
+              <!-- /ko -->
+              <!-- ko if: showMoreTagResults -->
+                <!-- ko foreach: slicedTagResults -->
+                  <div class="span12 search-category-container">
+                    <a data-bind="attr: { href: (contentStatus == 'DISABLED') ? '#' : url},
+                                        style: { cursor: (contentStatus == 'DISABLED') ? 'default' : 'pointer' }">
+                      <div class="span8 search-category-content">
+                      <span class="chapterIcon" data-bind="css: $root.getMediaTagIcon(mediaTag)"></span>
+                        <h5 data-bind="text: $data.displayText" class="wordBreak"></h5>
+                        <span data-bind="text: tag" class="search-result-type"></span>
+                        <span data-bind="if: contentStatus == 'DISABLED'" class="archived-result-type" data-toggle="tooltip" data-placement="right" data-original-title="This Topic has been archived, please restore the topic to view its content.">Archived</span>
+                      </div>
+                      <div class="span4 search-result-hierarchy">
+                        <h5 data-bind="text: topicName" class="search-topic-name wordBreak"></h5>
+                        <span data-bind="if: type == 'Chapter'"><h5 data-bind="text: '&gt; ' + subTopicName" class="search-subtopic-name wordBreak"></h5></span>
+                      </div>
+                    </a>
+                  </div>
+                <!-- /ko -->
+              <!-- /ko -->
+              <!-- ko if: searchTagResults().length > 4 -->
+                <div class="span12 search-show-more-container" data-bind="visible: $root.showMoreTagButton()">
+                    <h5 data-bind="click : function() { $root.showMoreTagSearchResults() }">Show more</h5>
+                </div>
+              <!-- /ko -->
+            </div>
+          </div>
+          <div class="span12 search-category content-search-category" data-bind="visible: $root.showContentSearch">
+            <div class="span2 search-category-name">
+              <h4>Content</h4>
+              <div class="totalSearch"><h5 data-bind="text: searchContentResults().length + ((searchContentResults().length &gt; 1) ? ' matches found' : ' match found')">matches found </h5></div>
+            </div>
+            <div class="span10">
+              <!-- ko foreach: searchContentResults -->
+                <!-- ko if: $index() < 4 -->
+                  <div class="span12 search-category-container">
+                    <a data-bind="attr: { href: (contentStatus == 'DISABLED') ? '#' : url},
+                                        style: { cursor: (contentStatus == 'DISABLED') ? 'default' : 'pointer' }">
+                      <div class="span8 search-category-content">
+                        <span class="chapterIcon" data-bind="css: $root.getMediaTagIcon(mediaTag)"></span>
+                        <h5 data-bind="text: $data.displayText" class="wordBreak"></h5>
+                        <span data-bind="if: contentStatus == 'DISABLED'" class="archived-result-type" data-toggle="tooltip" data-placement="right" data-original-title="This Topic has been archived, please restore the topic to view its content.">Archived</span>
+                        <div class="search-text" data-bind="html: highlightText[0]"></div>
+                      </div>
+                      <div class="span4 search-result-hierarchy">
+                        <h5 data-bind="text: topicName" class="search-topic-name wordBreak"></h5>
+                        <span data-bind="if: type == 'Chapter'"><h5 data-bind="text: '&gt; ' +  subTopicName" class="search-subtopic-name wordBreak"></h5></span>
+                      </div>
+                    </a>
+                  </div>
+                <!-- /ko -->
+              <!-- /ko -->
+              <!-- ko if: showMoreContentResults -->
+                <!-- ko foreach: slicedContentResults -->
+                  <div class="span12 search-category-container">
+                    <a data-bind="attr: { href: (contentStatus == 'DISABLED') ? '#' : url},
+                                        style: { cursor: (contentStatus == 'DISABLED') ? 'default' : 'pointer' }">
+                      <div class="span8 search-category-content">
+                        <span class="chapterIcon" data-bind="css: $root.getMediaTagIcon(mediaTag)"></span>
+                        <h5 data-bind="text: $data.displayText" class="wordBreak"></h5>
+                        <span data-bind="if: contentStatus == 'DISABLED'" class="archived-result-type" data-toggle="tooltip" data-placement="right" data-original-title="This Topic has been archived, please restore the topic to view its content.">Archived</span>
+                        <div class="search-text" data-bind="html: highlightText[0]"></div>
+                      </div>
+                      <div class="span4 search-result-hierarchy">
+                        <h5 data-bind="text: topicName" class="search-topic-name wordBreak"></h5>
+                        <span data-bind="if: type == 'Chapter'"><h5 data-bind="text: '&gt; ' + subTopicName" class="search-subtopic-name wordBreak"></h5></span>
+                      </div>
+                    </a>
+                  </div>
+                <!-- /ko -->
+              <!-- /ko -->
+              <!-- ko if: searchContentResults().length > 4 -->
+                <div class="span12 search-show-more-container" data-bind="visible: $root.showMoreContentButton()">
+                    <h5 data-bind="click : function() { $root.showMoreContentSearchResults() }">Show more</h5>
+                </div>
+              <!-- /ko -->
+            </div>
+          </div>
+        </div>
+        <div class="search-empty-container" data-bind="visible: (query().length &gt; 0) &amp;&amp; (searchResults().length == 0)">
+          <div class="search-empty">
+            <h4>No matches found</h4>
+          </div>
+        </div>
+      </div>
+      <div class="row-fluid" data-bind="visible: $root.isSearchLoading()">
+        <div class="hidden-phone span12 loader">
+          <img src="/assets/loader-alt-2d43d78d069f2a00f008ff949cff665f.gif" height="70" width="70" />
+        </div>
+      </div>
+      <div class="row-fluid visible-phone">
+        <!-- ko foreach : enableModulesGroups() ? filteredModules : modules -->
+          <div data-bind="template: { name: 'module-template', data: $data }"></div>
+        <!-- /ko -->
+      </div>
+    </div>
+    
+    <div class="container-fluid userDashboard" style="display: none" data-bind="visible: moduleEditMode() ? false : activeModule() ">
+      <!-- ko if: !$root.showSearchPane() && !$root.isSearchLoading() -->
+        <div class="row-fluid m-top-20 module-details-con" data-bind="visible: !$root.showSearchPane()">
+          <div class="module-title pull-left">
+            <!-- ko if: activeModule() -->
+              <h3>
+                <!-- ko if: $root.enableModulesGroups -->
+                  <span class="title breadcrumb-btn" data-bind="click: selectModulesHome">Module Groups</span> 
+                  <i class="icon-chevron-right"></i>
+                  <span class="title breadcrumb-btn" data-bind="click: selectModuleGroup.bind($data, activeModuleGroup()), text: activeModuleGroup()"></span> 
+                  <div style="display: inline-block">
+                    <i class="icon-chevron-right"></i>
+                    <span class="title breadcrumb-active" data-bind="text: activeModule().name"></span> 
+                  </div>
+                <!-- /ko -->
+                <!-- ko if: !$root.enableModulesGroups() -->
+                  <span class="title breadcrumb-btn" data-bind="click: selectModulesHome">Modules</span> 
+                  <i class="icon-chevron-right"></i>
+                  <span id="id_module_title" class="title" data-bind="text: activeModule().name"></span>
+                <!-- /ko -->
+              </h3>
+              <p data-bind="text: activeModule().description"></p>
+            <!-- /ko -->
+          </div>
+          
+        </div>
+        
+        <!-- ko if: $root.domainSettings().enableArchiveTopic-->
+          <div class="hidden-phone row-fluid" data-bind="visible: showActivePlans() &amp;&amp; !$root.showSearchPane()">
+            <div class="span3">
+              <!-- ko foreach : activePlans -->
+                <!-- ko if : $index()%4 == 0 -->
+                  <div data-bind="template: { name: 'card-template', data: $data }"></div>
+                <!-- /ko -->
+              <!-- /ko -->
+            </div>
+            <div class="span3">
+              <!-- ko foreach : activePlans -->
+                <!-- ko if : $index()%4 == 1 -->
+                  <div data-bind="template: { name: 'card-template', data: $data }"></div>
+                <!-- /ko -->
+              <!-- /ko -->
+            </div>
+            <div class="span3">
+              <!-- ko foreach : activePlans -->
+                <!-- ko if : $index()%4 == 2 -->
+                  <div data-bind="template: { name: 'card-template', data: $data }"></div>
+                <!-- /ko -->
+              <!-- /ko -->
+            </div>
+            <div class="span3">
+              <!-- ko foreach : activePlans -->
+                <!-- ko if : $index()%4 == 3 -->
+                  <div data-bind="template: { name: 'card-template', data: $data }"></div>
+                <!-- /ko -->
+              <!-- /ko -->
+            </div>
+            <div class="hidden-phone span12 loader">
+              <img src="/assets/loader-alt-2d43d78d069f2a00f008ff949cff665f.gif" height="70" width="70" data-bind="visible: isBusyFetchingActTopics()" />
+            </div>
+          </div>
+          <div class="hidden-phone row-fluid" data-bind="visible: !showActivePlans()">
+            <div class="span3">
+              <!-- ko foreach : inactivePlans -->
+                <!-- ko if : $index()%4 == 0 -->
+                  <div data-bind="template: { name: 'card-template', data: $data }"></div>
+                <!-- /ko -->
+              <!-- /ko -->
+            </div>
+            <div class="span3">
+              <!-- ko foreach : inactivePlans -->
+                <!-- ko if : $index()%4 == 1 -->
+                  <div data-bind="template: { name: 'card-template', data: $data }"></div>
+                <!-- /ko -->
+              <!-- /ko -->
+            </div>
+            <div class="span3">
+              <!-- ko foreach : inactivePlans -->
+                <!-- ko if : $index()%4 == 2 -->
+                  <div data-bind="template: { name: 'card-template', data: $data }"></div>
+                <!-- /ko -->
+              <!-- /ko -->
+            </div>
+            <div class="span3">
+              <!-- ko foreach : inactivePlans -->
+                <!-- ko if : $index()%4 == 3 -->
+                  <div data-bind="template: { name: 'card-template', data: $data }"></div>
+                <!-- /ko -->
+              <!-- /ko -->
+            </div>
+            <div class="hidden-phone span12 loader">
+              <img src="/assets/loader-alt-2d43d78d069f2a00f008ff949cff665f.gif" height="70" width="70" data-bind="visible: isBusyFetchingInActTopics()" />
+            </div>
+          </div>
+
+        <!-- /ko -->
+        <!-- ko if: !$root.domainSettings().enableArchiveTopic-->
+          <div class="hidden-phone row-fluid" data-bind="visible: !$root.showSearchPane()">
+            <div class="span3">
+              <!-- ko foreach : plans -->
+                <!-- ko if : $index()%4 == 0 -->
+                  <div data-bind="template: { name: 'card-template', data: $data }"></div>
+                <!-- /ko -->
+              <!-- /ko -->
+            </div>
+            <div class="span3">
+              <!-- ko foreach : plans -->
+                <!-- ko if : $index()%4 == 1 -->
+                  <div data-bind="template: { name: 'card-template', data: $data }"></div>
+                <!-- /ko -->
+              <!-- /ko -->
+            </div>
+            <div class="span3">
+              <!-- ko foreach : plans -->
+                <!-- ko if : $index()%4 == 2 -->
+                  <div data-bind="template: { name: 'card-template', data: $data }"></div>
+                <!-- /ko -->
+              <!-- /ko -->
+            </div>
+            <div class="span3">
+              <!-- ko foreach : plans -->
+                <!-- ko if : $index()%4 == 3 -->
+                  <div data-bind="template: { name: 'card-template', data: $data }"></div>
+                <!-- /ko -->
+              <!-- /ko -->
+            </div>
+            <div class="hidden-phone span12 loader">
+              <img src="/assets/loader-alt-2d43d78d069f2a00f008ff949cff665f.gif" height="50" width="50" data-bind="visible: isBusyFetchingTopics()" />
+            </div>
+          </div>
+        <!-- /ko -->
+      <!-- /ko -->
+      <div class="row-fluid" data-bind="visible: $root.showSearchPane() &amp;&amp; !$root.isSearchLoading()">
+        <div class="row-fluid search-result-count">
+          <h3 data-bind="text: searchResults().length + ((searchResults().length &gt; 1) ? ' Results' : ' Result')"></h3>
+        </div>
+        <div class="search-container" data-bind="visible: (query().length &gt; 0) &amp;&amp; (searchResults().length &gt; 0)">
+          <div class="span12 search-category" data-bind="visible: $root.showTitleSearch">
+            <div class="span2 search-category-name">
+              <h4>Title</h4>
+              <div class="totalSearch"><h5 data-bind="text: searchTitleResults().length + ((searchTitleResults().length &gt; 1) ? ' matches found' : ' match found')">matches found </h5></div>
+            </div>
+            <div class="span10">
+              <!-- ko foreach: searchTitleResults -->
+                <!-- ko if: $index() < 4 -->
+                  <div class="span12 search-category-container">
+                    <a data-bind="attr: { href: (contentStatus == 'DISABLED') ? '#' : url},
+                                        style: { cursor: (contentStatus == 'DISABLED') ? 'default' : 'pointer' }">
+                      <div class="span8 search-category-content">
+                        <h5 data-bind="text: $data.displayText" class="wordBreak"></h5>
+                        <span data-bind="text: type" class="search-result-type"></span>
+                        <span data-bind="if: contentStatus == 'DISABLED'" class="archived-result-type" data-toggle="tooltip" data-placement="right" data-original-title="This Topic has been archived, please restore the topic to view its content.">Archived</span>
+                      </div>
+                      <div class="span4 search-result-hierarchy">
+                        <h5 data-bind="text: topicName" class="search-topic-name wordBreak"></h5>
+                        <span data-bind="if: type == 'Chapter'"><h5 data-bind="text: '&gt; ' + subTopicName" class="search-subtopic-name wordBreak"></h5></span>
+                      </div>
+                    </a>
+                  </div>
+                <!-- /ko -->
+              <!-- /ko -->
+              <!-- ko if: showMoreTitleResults -->
+                <!-- ko foreach: slicedTitleResults -->
+                  <div class="span12 search-category-container">
+                    <a data-bind="attr: { href: (contentStatus == 'DISABLED') ? '#' : url},
+                                        style: { cursor: (contentStatus == 'DISABLED') ? 'default' : 'pointer' }">
+                      <div class="span8 search-category-content">
+                        <h5 data-bind="text: $data.displayText" class="wordBreak"></h5>
+                        <span data-bind="text: type" class="search-result-type"></span>
+                        <span data-bind="if: contentStatus == 'DISABLED'" class="archived-result-type" data-toggle="tooltip" data-placement="right" data-original-title="This Topic has been archived, please restore the topic to view its content.">Archived</span>
+                      </div>
+                      <div class="span4 search-result-hierarchy">
+                        <h5 data-bind="text: topicName" class="search-topic-name wordBreak"></h5>
+                        <span data-bind="if: type == 'Chapter'"><h5 data-bind="text: '&gt; ' + subTopicName" class="search-subtopic-name wordBreak"></h5></span>
+                      </div>
+                    </a>
+                  </div>
+                <!-- /ko -->
+              <!-- /ko -->
+              <!-- ko if: searchTitleResults().length > 4 -->
+                <div class="span12 search-show-more-container" data-bind="visible: showMoreTitleButton()">
+                  <h5 data-bind="click : function() { $root.showMoreTitleSearchResults() }">Show more</h5>
+                </div>
+              <!-- /ko -->
+            </div>
+          </div>
+          <div class="span12 search-category" data-bind="visible: $root.showTagSearch">
+            <div class="span2 search-category-name">
+              <h4>Tag</h4>
+              <div class="totalSearch"><h5 data-bind="text: searchTagResults().length + ((searchTagResults().length &gt; 1) ? ' matches found' : ' match found')">matches found </h5></div>
+            </div>
+
+            <div class="span10">
+              <!-- ko foreach: searchTagResults -->
+                <!-- ko if: $index() < 4 -->
+                  <div class="span12 search-category-container">
+                    <a data-bind="attr: { href: (contentStatus == 'DISABLED') ? '#' : url},
+                                        style: { cursor: (contentStatus == 'DISABLED') ? 'default' : 'pointer' }">
+                      <div class="span8 search-category-content">
+                      <span class="chapterIcon" data-bind="css: $root.getMediaTagIcon(mediaTag)"></span>
+                        <h5 data-bind="text: $data.displayText" class="wordBreak"></h5>
+                        <span data-bind="text: tag" class="search-result-type"></span>
+                        <span data-bind="if: contentStatus == 'DISABLED'" class="archived-result-type" data-toggle="tooltip" data-placement="right" data-original-title="This Topic has been archived, please restore the topic to view its content.">Archived</span>
+                      </div>
+                      <div class="span4 search-result-hierarchy">
+                        <h5 data-bind="text: topicName" class="search-topic-name wordBreak"></h5>
+                        <span data-bind="if: type == 'Chapter'"><h5 data-bind="text: '&gt; ' + subTopicName" class="search-subtopic-name wordBreak"></h5></span>
+                      </div>
+                    </a>
+                  </div>
+                <!-- /ko -->
+              <!-- /ko -->
+              <!-- ko if: showMoreTagResults -->
+                <!-- ko foreach: slicedTagResults -->
+                  <div class="span12 search-category-container">
+                    <a data-bind="attr: { href: (contentStatus == 'DISABLED') ? '#' : url},
+                                        style: { cursor: (contentStatus == 'DISABLED') ? 'default' : 'pointer' }">
+                      <div class="span8 search-category-content">
+                      <span class="chapterIcon" data-bind="css: $root.getMediaTagIcon(mediaTag)"></span>
+                        <h5 data-bind="text: $data.displayText" class="wordBreak"></h5>
+                        <span data-bind="text: tag" class="search-result-type"></span>
+                        <span data-bind="if: contentStatus == 'DISABLED'" class="archived-result-type" data-toggle="tooltip" data-placement="right" data-original-title="This Topic has been archived, please restore the topic to view its content.">Archived</span>
+                      </div>
+                      <div class="span4 search-result-hierarchy">
+                        <h5 data-bind="text: topicName" class="search-topic-name wordBreak"></h5>
+                        <span data-bind="if: type == 'Chapter'"><h5 data-bind="text: '&gt; ' + subTopicName" class="search-subtopic-name wordBreak"></h5></span>
+                      </div>
+                    </a>
+                  </div>
+                <!-- /ko -->
+              <!-- /ko -->
+              <!-- ko if: searchTagResults().length > 4 -->
+                <div class="span12 search-show-more-container" data-bind="visible: $root.showMoreTagButton()">
+                    <h5 data-bind="click : function() { $root.showMoreTagSearchResults() }">Show more</h5>
+                </div>
+              <!-- /ko -->
+            </div>
+          </div>
+          <div class="span12 search-category content-search-category" data-bind="visible: $root.showContentSearch">
+            <div class="span2 search-category-name">
+              <h4>Content</h4>
+              <div class="totalSearch"><h5 data-bind="text: searchContentResults().length + ((searchContentResults().length &gt; 1) ? ' matches found' : ' match found')">matches found </h5></div>
+            </div>
+            <div class="span10">
+              <!-- ko foreach: searchContentResults -->
+                <!-- ko if: $index() < 4 -->
+                  <div class="span12 search-category-container">
+                    <a data-bind="attr: { href: (contentStatus == 'DISABLED') ? '#' : url},
+                                        style: { cursor: (contentStatus == 'DISABLED') ? 'default' : 'pointer' }">
+                      <div class="span8 search-category-content">
+                        <span class="chapterIcon" data-bind="css: $root.getMediaTagIcon(mediaTag)"></span>
+                        <h5 data-bind="text: $data.displayText" class="wordBreak"></h5>
+                        <span data-bind="if: contentStatus == 'DISABLED'" class="archived-result-type" data-toggle="tooltip" data-placement="right" data-original-title="This Topic has been archived, please restore the topic to view its content.">Archived</span>
+                        <div class="search-text" data-bind="html: highlightText[0]"></div>
+                      </div>
+                      <div class="span4 search-result-hierarchy">
+                        <h5 data-bind="text: topicName" class="search-topic-name wordBreak"></h5>
+                        <span data-bind="if: type == 'Chapter'"><h5 data-bind="text: '&gt; ' +  subTopicName" class="search-subtopic-name wordBreak"></h5></span>
+                      </div>
+                    </a>
+                  </div>
+                <!-- /ko -->
+              <!-- /ko -->
+              <!-- ko if: showMoreContentResults -->
+                <!-- ko foreach: slicedContentResults -->
+                  <div class="span12 search-category-container">
+                    <a data-bind="attr: { href: (contentStatus == 'DISABLED') ? '#' : url},
+                                        style: { cursor: (contentStatus == 'DISABLED') ? 'default' : 'pointer' }">
+                      <div class="span8 search-category-content">
+                        <span class="chapterIcon" data-bind="css: $root.getMediaTagIcon(mediaTag)"></span>
+                        <h5 data-bind="text: $data.displayText" class="wordBreak"></h5>
+                        <span data-bind="if: contentStatus == 'DISABLED'" class="archived-result-type" data-toggle="tooltip" data-placement="right" data-original-title="This Topic has been archived, please restore the topic to view its content.">Archived</span>
+                        <div class="search-text" data-bind="html: highlightText[0]"></div>
+                      </div>
+                      <div class="span4 search-result-hierarchy">
+                        <h5 data-bind="text: topicName" class="search-topic-name wordBreak"></h5>
+                        <span data-bind="if: type == 'Chapter'"><h5 data-bind="text: '&gt; ' + subTopicName" class="search-subtopic-name wordBreak"></h5></span>
+                      </div>
+                    </a>
+                  </div>
+                <!-- /ko -->
+              <!-- /ko -->
+              <!-- ko if: searchContentResults().length > 4 -->
+                <div class="span12 search-show-more-container" data-bind="visible: $root.showMoreContentButton()">
+                    <h5 data-bind="click : function() { $root.showMoreContentSearchResults() }">Show more</h5>
+                </div>
+              <!-- /ko -->
+            </div>
+          </div>
+        </div>
+        <div class="search-empty-container" data-bind="visible: (query().length &gt; 0) &amp;&amp; (searchResults().length == 0)">
+          <div class="search-empty">
+            <h4>No matches found</h4>
+          </div>
+        </div>
+      </div>
+      <div class="row-fluid" data-bind="visible: $root.isSearchLoading()">
+        <div class="hidden-phone span12 loader">
+          <img src="/assets/loader-alt-2d43d78d069f2a00f008ff949cff665f.gif" height="70" width="70" />
+        </div>
+      </div>
+      <div class="visible-phone">
+        <!-- ko if: $root.domainSettings().enableArchiveTopic -->
+          <!-- ko foreach : activePlans -->
+            <div data-bind="template: { name: 'card-template', data: $data }"></div>
+          <!-- /ko -->
+        <!-- /ko -->
+        <!-- ko if: !$root.domainSettings().enableArchiveTopic -->
+          <!-- ko foreach : plans -->
+            <div data-bind="template: { name: 'card-template', data: $data }"></div>
+          <!-- /ko -->
+        <!-- /ko -->
+      </div>
+    </div>
+    <div class="container-fluid modules-edit-mode userDashboard" data-bind="visible: moduleEditMode" style="display: none">
+      <div class="row-fluid m-top-20">
+        <div class="span3">
+          <div class="module-title clearfix">
+            <h3 class="pull-left">Modules</h3>
+            <button data-bind="click: addModule" class="btn e-icon-a pull-right add-module-btn">
+              <i class="icon-plus"></i>
+            </button>
+          </div>
+          <ul class="module-list-con">
+            <div class="module-list-inner" style="position: relative" data-bind="sortable : { data: modules, connectClass:'module-list-inner' ,
+                            afterMove: reorderModules,
+                            options: { handle: '.sortableHandle', hoverClass: 'testing'} }">
+              <div class="card module-list-card" data-bind="css         : { 'active-module' : $root.activeModule() ? $root.activeModule().id == id : false},
+                              click       : $root.selectModule,
+                              clickBubble : false,
+                              attr        : { 'data-module-id' : id }">
+                <span data-bind="click: function() { return true; }, clickBubble: false" class="pull-left sortableHandle">
+                  <img src="/assets/drag-dots2-6a2d6cc04e6e320ea726a62750d88a5b.png" />
+                </span>
+                <!-- ko text: name --><!-- /ko -->
+                <div data-bind="sortable: { data: topics, afterMove: $root.reorderTopics }"></div>
+                <span class="edit-module-but pull-right" data-bind="click: $root.editModule, clickBubble: false">
+                  <i class="icon-pencil"></i>
+                </span>
+                <span class="delete-module-but pull-right" data-bind="click: $root.deleteModule, clickBubble: false">
+                  <i class="icon-trash"></i>
+                </span>
+              </div>
+            </div>
+          </ul>
+        </div>
+        <div class="span9">
+          <div class="module-title clearfix">
+            <h3 class="pull-left">Topics</h3>
+            
+            <div class="pull-right">
+              <button data-bind="click: addTopic" class="btn e-icon-a module-done-btn">
+                + New Topic
+              </button>
+              <button data-bind="click: toggleModulesEditMode" class="btn e-icon-a module-done-btn">
+                Done Editing
+              </button>
+            </div>
+          </div>
+          <div class="row-fluid" data-bind="if: activeModule()">
+            <div class="topic-sortable" data-bind="sortable : { data: activeModule().topics , afterMove: reorderTopics }">
+              <div class="row-fluid card e-topic-card" data-bind="attr : { id: 'plan-' + topicId },
+                              css  : $root.setCorner(percentComplete, contentStatus),
+                              click: !$root.moduleEditMode ? $root.viewTopicById.bind($data, topicId, name):null">
+                <div class="card-heading simple">
+                  <a data-bind="text: name, attr: {'title': name}"></a>
+                </div>
+
+                <span data-bind="click: $root.deleteTopic, clickBubble: false" class="disc-delete-btn" title="Delete">
+                  <i class="icon-trash"></i>
+                </span>
+                <!-- ko if: contentStatus == 'ACTIVE'-->
+                  <a data-bind="click: function(){ return true }, clickBubble: false, attr: { href: '/edit/topic/'+topicId }" class="disc-edit-btn" title="Edit">
+                    <i class="icon-pencil"></i>
+                  </a>
+                <!-- /ko -->
+                <div class="drag-text text-center"><i class="icon-move"></i> DRAG &amp; DROP</div>
+              </div>
+            </div>
+            <div class="hidden-phone span12 loader">
+              <img src="/assets/loader-alt-2d43d78d069f2a00f008ff949cff665f.gif" height="70" width="70" data-bind="visible: isBusyFetchingTopics()" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script type="text/html" id="module-group-template">
+  &lt;div class="span12 card e-topic-card e-topic-card-blue" data-bind="click: $root.selectModuleGroup.bind($data, $data, false)"&gt;
+    &lt;div class="card-heading simple" data-bind="text: $data"&gt;
+    &lt;/div&gt;
+    
+  &lt;/div&gt;
+</script>
+<script type="text/html" id="module-template">
+  &lt;div class="span12 card e-topic-card e-topic-card-blue" data-bind="click: $root.selectModule, attr : { id: 'module-'+id() }"&gt;
+    &lt;div class="card-heading simple" data-bind="text: name"&gt;
+    &lt;/div&gt;
+    &lt;div class="card-topic-count"&gt;
+       &lt;!-- ko if: $root.domainSettings().enableArchiveTopic--&gt;
+        &lt;!-- ko text: activeTopicsLength()  --&gt;&lt;!-- /ko --&gt;
+      &lt;!-- /ko --&gt;
+      &lt;!-- ko if: !$root.domainSettings().enableArchiveTopic--&gt;
+        &lt;!-- ko text: activeTopicsLength() + inactiveTopicsLength() --&gt;&lt;!-- /ko --&gt;
+      &lt;!-- /ko --&gt;
+      &lt;!-- ko if: activeTopicsLength() == 1 --&gt;Topic&lt;!-- /ko --&gt;
+      &lt;!-- ko if: activeTopicsLength() != 1 --&gt;Topics&lt;!-- /ko --&gt;
+    &lt;/div&gt;
+    &lt;div class="card-topic-description" data-bind="text: description"&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+</script>
+          
+
+          
+          
+
+          
+          
+            
+  <div class="tab-pane row-fluid" id="lB" ng-controller="SubmissionsCtrl">
+    <div class="formPane" id="submissionPane" infinite-scroll="getQuizListForTopic()" can-load="true" threshold="200">
+      <div class="container-fluid userDashboard">
+        <div class="row-fluid m-top-20">
+          <div class="submissions-title pull-left" ng-show="!showQuizList">
+            <h3>
+              <span class="title">Submissions</span> 
+            </h3>
+          </div>
+          <div class="submissions-title pull-left" ng-show="showQuizList">
+            <h3>
+              <span class="title breadcrumb-btn" ng-click="showQuizList = false; resetQuizData()">Submissions</span> 
+              <i class="icon-chevron-right"></i>
+              <span class="title">{{currentTopicNameWithSubmissions}}</span>
+            </h3>
+          </div>
+        </div>
+        <div ng-show="!showQuizList">
+          <div class="tab-pane">
+  <div class="row-fluid" ng-repeat="topics in topicsWithQuizSubmissions track by $index" ng-if="$index % 4 == 0">
+    <div class="span3" ng-repeat="topic in [$index, $index + 1, $index + 2, $index + 3]" ng-if="topicsWithQuizSubmissions[topic] != null">
+        <a class="card e-topic-card e-topic-card-purple" style="display: inline-block; width: 100%;" ng-click="getQuizList(topicsWithQuizSubmissions[topic].topicId, topicsWithQuizSubmissions[topic].topicName);" target="_blank">
+        <div class="card-heading simple wordBreak">{{topicsWithQuizSubmissions[topic].topicName}}</div>
+        <div class="card-quiz-eval row-fluid">
+          <div>
+            <span>Forms</span><br />
+            {{topicsWithQuizSubmissions[topic].formCount}}
+          </div>
+          <div>
+            <span>Submissions</span><br />
+            {{topicsWithQuizSubmissions[topic].submissionCount}}
+          </div>
+        </div>
+        <div class="card-quiz-eval row-fluid">
+          <div>
+            <span>Surveys</span><br />
+            {{topicsWithQuizSubmissions[topic].surveyCount}}
+          </div>
+          <div>
+            <span>Responses</span><br />
+            {{topicsWithQuizSubmissions[topic].responseCount}}
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+  <div ng-show="noTopicsWithQuiz">
+    <p>No forms have been submitted till now.</p>
+  </div>
+  <div ng-show="isLoading" class="span12 loader"><img src="/assets/loader-alt-2d43d78d069f2a00f008ff949cff665f.gif" height="70" width="70" /></div>
+</div>
+        </div>
+        <div ng-show="showQuizList">
+          <div class="tab-pane">
+  <div class="row-fluid m-top-20">
+    <div class="span3">
+      <div class="quizzes">
+        <div class="quizCard" ng-class="{'quizCardOverlay' : $index == quizIndex }" ng-click="getSubmissions(quiz.quizId, quiz.quiz_type); quizClicked($index)" ng-repeat="quiz in quizList">
+          <div class="row-fluid">
+            <div class="span3">
+              <div class="quizIcon">
+                <span class="quiz-icon pull-left"></span>
+              </div>
+            </div>
+            <div class="span9">
+              <div class="quizText">
+                <h4 class="wordBreak">{{quiz.quizName}}</h4>
+                <h5 class="wordBreak subtopicName">in {{quiz.subtopic_name}}</h5>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="span9">
+      <div class="quizSubmissionsCard" id="quizResponseCard" infinite-scroll="getresponseList()" can-load="responseListScrollable" threshold="200">
+        <div class="submissionContent" ng-repeat="submissionData in submissionsData track by $index">
+          <div class="row-fluid">
+            <span class="submissionAuthor">{{submissionData.authorName}}</span>
+            <span class="submissionTime">submitted on {{submissionData.submittedOn}}</span>
+          </div>
+          <div class="m-top-10"></div>
+          <div class="row-fluid submissionResponse m-bottom-10" ng-repeat="question in submissionData.questions">
+            <div class="span8">
+              <div class="wordBreak">{{question.questionName}}</div>
+            </div>
+            <div class="span4">
+              <div ng-if="submissionsData.quizType == 'Survey'">
+                <div ng-repeat="response in question.response track by $index">
+                  <div ng-if="response == true">
+                    <div ng-if="question.options[$index] != null">
+                      <div class="wordBreak">{{question['options'][$index]}}</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div ng-if="submissionsData.quizType == 'Assignment'">
+                <h5 class="noteFromUser" ng-if="question.noteFromUser">{{question.noteFromUser}}</h5>
+                <a ng-href="{{question.linkToFile}}" class="wordBreak" target="_blank">{{question.fileName}}</a>
+              </div>
+              <div ng-if="(submissionsData.quizType != 'Survey') &amp;&amp; (submissionsData.quizType != 'Assignment')">
+                <div class="wordBreak">{{question.response[0]}}</div>
+              </div>
+            </div>
+          </div>
+          <hr />
+        </div>
+        <div ng-show="isResponseLoading" class="span12 loader"><img src="/assets/loader-alt-2d43d78d069f2a00f008ff949cff665f.gif" height="50" width="50" /></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+        </div>
+      </div>
+    </div>
+    <div style="clear: both;"></div>
+  </div>
+
+          
+
+          
+          
+
+          
+          
+            <div class="tab-pane row-fluid" id="lG">
+  <div class="formPane js-activity-tab">
+    <div class="container-fluid userDashboard">
+      
+      <div class="row-fluid m-top-20">
+        <h2>Activity</h2>
+      </div>
+      <div class="activity-search-wrapper">
+        <input placeholder="Search" name="q" data-bind="value: searchQuery, valueUpdate: 'keyup'" autocomplete="off" class="row-fluid topic-search" type="search" maxlength="254" />
+        <i class="icon-search"></i>
+      </div>
+      <!-- ko if: newActivities().length == 0 -->
+        <!-- ko if: searchQuery == '' -->
+          <div class="no-assign-msg show-after-load">No activity found.</div>
+        <!-- /ko -->
+        <!-- ko if: searchQuery != '' -->
+          <div class="no-assign-msg show-after-load">No results found.</div>
+        <!-- /ko -->
+      <!-- /ko -->
+      <div class="show-after-load">
+        <!-- ko foreach: newActivities -->
+          <h4 class="m-top-20" data-bind="text: $root.getProcessedDate(date)">Today</h4>
+          <div class="card e-subtopic-card activity-card m-top-20">
+            <!-- ko foreach: activity -->
+              <div class="row-fluid activity-item">
+                <div class="activity-icon pull-left span1" data-bind="html: $root.getActivityIcon(type, actionOn)">
+                  <i class="icon-share"></i>
+                </div>
+                <div class="span11">
+                  <div class="activity-content pull-left">
+                    <span data-bind="html: message"></span>
+                    <div class="activity-time" data-bind="text: time"></div>
+                  </div>
+                </div>
+              </div>
+            <!-- /ko -->
+          </div>
+        <!-- /ko -->
+        <!-- ko if: lastPageReached() && newActivities().length > 0 -->
+          <h4 class="m-top-20 text-center">No more activity</h4>
+        <!-- /ko -->
+        <!-- ko if: !lastPageReached() -->
+          <h4 class="m-top-20 text-center">
+            <img src="/assets/loader-alt-2d43d78d069f2a00f008ff949cff665f.gif" height="80" width="80" />
+          </h4>
+        <!-- /ko -->
+      </div>
+    </div>
+  </div>
+</div>
+
+          
+
+          
+          
+            <div class="tab-pane row-fluid" id="lH">
+  <div class="formPane" id="initialForm">
+    <div class="container-fluid" ng-controller="EmailCampaignCtrl">
+      <div ng-show="isShowCampaignList">
+        <div class="row-fluid m-top-20">
+          <h3 class="span4">Email Campaigns</h3>
+          <div class="pull-right campaign-actions">
+            <button class="ladda-button campaign-btn" id="campaignTemplatesBtn" ng-click="showTemplateList()">
+              Templates
+            </button>
+            <div class="data-export-btn">
+              <a class="export-inner" ng-href="/campaign/export">
+                <i class="icon-2x icon-download-alt"></i>
+                <span class="hidden-phone">Export Data</span>
+              </a>
+            </div>
+            <button id="btn-launch" class="ladda-button campaign-launch-btn " ng-click="createCampaign()">
+              New Campaign
+            </button>
+          </div>
+        </div>
+        <div class="row mgmt-table-con m-top-20 m-bottom-20" ng-class="{loading:isLoading}">
+          <table class="table table-hover" id="resTable" st-pipe="callServer" st-table="rowCollection" st-pagination-scroll="">
+            <thead>
+              <tr><th st-sort="name" width="17%">
+                <span>Campaign Name</span>
+                <div class="sort-indicator-icons">
+                  <span class="icon-caret-down"></span>
+                  <span class="icon-caret-up"></span>
+                </div>
+              </th>
+              <th st-sort="topicName" width="14%">
+                <span>Topic</span>
+                <div class="sort-indicator-icons">
+                  <span class="icon-caret-down"></span>
+                  <span class="icon-caret-up"></span>
+                </div>
+              </th>
+              <th st-sort="numUsers" width="8%">
+                <span>Users</span>
+                <div class="sort-indicator-icons">
+                  <span class="icon-caret-down"></span>
+                  <span class="icon-caret-up"></span>
+                </div>
+              </th>
+              <!--<th st-sort="clicked" width="9%">
+                <span>Clicked</span>
+                <div class="sort-indicator-icons">
+                  <span class="icon-caret-down"></span>
+                  <span class="icon-caret-up"></span>
+                </div>
+              </th>
+              <th st-sort="opened" width="9%">
+                <span>Opened</span>
+                <div class="sort-indicator-icons">
+                  <span class="icon-caret-down"></span>
+                  <span class="icon-caret-up"></span>
+                </div>
+              </th>
+              <th st-sort="clickRatio" width="13%">
+                <span>Click to Open Ratio</span>
+                <div class="sort-indicator-icons">
+                  <span class="icon-caret-down"></span>
+                  <span class="icon-caret-up"></span>
+                </div>
+              </th>
+              <th st-sort="numInteracted" width="10%">
+                <span>Viewed Content</span>
+                <div class="sort-indicator-icons">
+                  <span class="icon-caret-down"></span>
+                  <span class="icon-caret-up"></span>
+                </div>
+              </th>
+              <th st-sort="createdBy" width="10%">
+                <span>Created By</span>
+                <div class="sort-indicator-icons">
+                  <span class="icon-caret-down"></span>
+                  <span class="icon-caret-up"></span>
+                </div>
+              </th>-->
+              <th width="9%">
+                <span>Opened</span>
+              </th>
+              <th width="9%">
+                <span>Clicked</span>
+              </th>
+              <th width="13%">
+                <span>Click to Open Ratio</span>
+              </th>
+              <th width="10%">
+                <span>Viewed Content</span>
+              </th>
+              <th width="10%">
+                <span>Created By</span>
+              </th>
+              <th st-sort="startDate" width="11%">
+                <span>Start Date</span>
+                <div class="sort-indicator-icons">
+                  <span class="icon-caret-down"></span>
+                  <span class="icon-caret-up"></span>
+                </div>
+              </th>
+              <th st-sort="status" width="12%">
+                <span>Status</span>
+                <div class="sort-indicator-icons">
+                  <span class="icon-caret-down"></span>
+                  <span class="icon-caret-up"></span>
+                </div>
+              </th>
+            </tr></thead>
+            <tbody id="tableBody" ng-class="{disable:isTableDisabled()}" ng-style="styleHeight()">
+              <tr ng-show="noCampaigns" ng-style="styleHeight()">
+                <td class="noCampaigns">
+                    No campaigns available
+                </td>
+              </tr>
+              <tr ng-repeat="row in rowCollection" ng-click="viewCampaign(row.id)" ng-hide="noCampaigns">
+                <td class="wordBreak" width="17%"><span ng-bind="row.name"></span></td>
+                <td class="wordBreak" width="14%"><span ng-bind="row.topic.name"></span></td>
+                <td width="8%"><span ng-bind="row.userCount | emptyCheck"></span></td>
+                <td width="9%"><span ng-bind="row.opened | emptyCheck"></span></td>
+                <td width="9%"><span ng-bind="row.clicked | emptyCheck"></span></td>
+                <td width="13%"><span ng-bind="row.clickToOpenRatio | emptyCheck"></span></td>
+                <td width="10%"><span ng-bind="row.viewed | emptyCheck"></span></td>
+                <td width="10%"><span ng-bind="row.createdBy.name"></span></td>
+                <td width="11%"><span ng-bind="filterDate(row.startDate) | emptyCheck"></span></td>
+                <td class="{{row.status | lowercase}}" width="12%"><span ng-bind="row.status | emptyCheck"></span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div id="createCampaign" ng-show="isShowCampaignCreate">
+  <div class="row-fluid m-top-20">
+    <div class="campaignForm clearfix">
+      <input id="campaignNameInput" class="campaignHeader" type="text" placeholder="Campaign Name" ng-disabled="isDisable" maxlength="200" ng-model="campaignHeader" />
+      <button id="launchCampaingsButton" ng-click="confirmLaunch()" ladda="launchLoading" data-spinner-color="#fff" data-style="slide-down" ng-hide="isActiveCampaignEnabled" ng-disabled="saveDraftLoading" class="ladda-button campaign-launch-btn pull-right">
+        Launch Campaign
+      </button>
+      <button id="testCampaign" ng-show="!isDisable" ng-click="showTestCampaignModal()" class="ladda-button campaign-btn pull-right">
+        Test
+      </button>
+      <button id="previewCampaignButton" ng-click="previewCampaign()" class="ladda-button campaign-btn pull-right">
+        Preview
+      </button>
+      
+      <button id="saveCampaignButton" ng-click="saveCampaign()" ladda="saveDraftLoading" data-spinner-color="#5a5c6c" data-style="slide-down" ng-hide="isActiveCampaignEnabled" ng-disabled="launchLoading" class="ladda-button campaign-btn pull-right">
+        Save Draft
+      </button>
+      <button id="backToCampaignListBtn" ng-click="viewCampaignsList()" class="ladda-button campaign-btn pull-right" ng-disabled="saveDraftLoading || launchLoading || isUserLoading || isContactUserLoading">
+        Back
+      </button>
+    </div>
+  </div>
+  <div id="previewModal" class="eltropy-modal modal hide fade" tabindex="5" role="dialog" aria-labelledby="previewCampaign" aria-hidden="true">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+      <!--<h3>{{campaignHeader}} <span>Preview</span></h3>-->
+      <h3><span ng-bind="campaignHeader"></span> <span>Preview</span></h3>
+    </div>
+    <div class="modal-body eltropy-classic-form m-top-20">
+      <div class="email">
+        <div class="row-fluid">
+          <div class="span2">
+            <h5 class="pull-left">To</h5>
+          </div>
+          <div class="span10">
+            <h5 ng-bind="getPreviewUsers()"></h5>
+          </div>
+        </div>
+        <div class="row-fluid">
+          <div class="span2">
+            <h5 class="pull-left">From</h5>
+          </div>
+          <div class="span10">
+            <!--<h5>{{campaignFrom.name}} <{{campaignFrom.previewMail}}></h5>-->
+            <h5><span ng-bind="campaignFrom.name"></span> , <span ng-bind="campaignFrom.previewMail"></span></h5>
+          </div>
+        </div>
+        <hr />
+        <div class="row-fluid">
+          <div class="span2">
+            <h5 class="pull-left">Start Date</h5>
+          </div>
+          <div class="span10">
+            <h5 ng-show="!launchCampaignNow">{{startDate}}</h5>
+            <h5 ng-show="launchCampaignNow">{{currentDate}}</h5>
+          </div>
+        </div>
+        <hr />
+        <div class="row-fluid">
+          <div class="span2">
+            <h5 class="pull-left">End Date</h5>
+          </div>
+          <div class="span10">
+            <h5>{{endDate}}</h5>
+          </div>
+        </div>
+        <hr />
+        <div class="row-fluid">
+          <div class="span2">
+            <h5 class="pull-left">Subject</h5>
+          </div>
+          <div class="span10">
+            <h5>{{campaignSubject}}</h5>
+          </div>
+        </div>
+        <hr />
+        <div class="row-fluid">
+          <div class="span12 pull-left">
+            <h5 class="previewBody"></h5>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn confirmLaunch" ng-click="launchCampaign()" ng-hide="!isLaunch" aria-hidden="true">Launch</button>
+      <button class="btn closePreview" ng-hide="!isLaunch" data-dismiss="modal" aria-hidden="true"> Edit Campaign</button>
+      <button class="btn closePreview" ng-show="!isLaunch" data-dismiss="modal" aria-hidden="true"> Close</button>
+    </div>
+  </div>
+  <div id="testCampaignModal" class="eltropy-modal modal hide fade" tabindex="5" role="dialog" aria-labelledby="previewCampaign" aria-hidden="true">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+      <!--<h3>{{campaignHeader}} <span>Preview</span></h3>-->
+      <h3 class=""><span ng-bind="campaignHeader"></span> <span>Preview</span></h3>
+    </div>
+    <div class="modal-body eltropy-classic-form m-top-20">
+      <div class="email">
+        <div class="row-fluid">
+          <div class="span2">
+            <h5 class="pull-left">To</h5>
+          </div>
+          <div class="span10">
+            <h5><span ng-bind="campaignFrom.name"></span> , <span ng-bind="campaignFrom.previewMail"></span></h5>
+          </div>
+        </div>
+        <div class="row-fluid">
+          <div class="span2">
+            <h5 class="pull-left">From</h5>
+          </div>
+          <div class="span10">
+            <!--<h5>{{campaignFrom.name}} <{{campaignFrom.previewMail}}></h5>-->
+            <h5><span ng-bind="campaignFrom.name"></span> , <span ng-bind="campaignFrom.previewMail"></span></h5>
+          </div>
+        </div>
+        <hr />
+        <div class="row-fluid">
+          <div class="span2">
+            <h5 class="pull-left">Start Date</h5>
+          </div>
+          <div class="span10">
+            <h5>{{testStartDate}}</h5>
+          </div>
+        </div>
+        <hr />
+        <div class="row-fluid">
+          <div class="span2">
+            <h5 class="pull-left">End Date</h5>
+          </div>
+        </div>
+        <hr />
+        <div class="row-fluid">
+          <div class="span2">
+            <h5 class="pull-left">Subject</h5>
+          </div>
+          <div class="span10">
+            <h5>{{campaignSubject}}</h5>
+          </div>
+        </div>
+        <hr />
+        <div class="row-fluid">
+          <div class="span12 pull-left">
+            <h5 class="testCampaingnBody"></h5>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-testCampaign" data-dismiss="modal" ng-click="sendTestMail()" aria-hidden="true">Send test email now</button>
+      <button class="btn btn-editCampaign" data-dismiss="modal" aria-hidden="true"> Edit Campaign</button>
+    </div>
+  </div>
+  <div class="row-fluid m-top-5">
+    <div class="addUsers">
+      <button id="btn-add" ng-bind="getUserButtonText()" ng-click="showAddUsers()" ng-class="{disableHover: disableHover}" class="campaign-addUsers-btn">
+      </button>
+      <div class="addUsersTable" ng-show="isAddUsers">
+        <div class="btn-group">
+          <button id="importFromSFLeadsBtn" type="button" ladda="isUserLoading" data-spinner-color="#5a5c6c" data-style="slide-down" class="btn salesforce btn-default" ng-show="isShowAddUsersOptions" ng-disabled="isContactUserLoading" ng-click="confirmGetSalesforceUsers()" ng-class="{'userButtonSelected' : isLeads}">
+                  <img src="/assets/salesforce-color-icon.png" width="40" />Leads</button>
+          <button id="importFromSFContactsBtn" type="button" ladda="isContactUserLoading" data-spinner-color="#5a5c6c" data-style="slide-down" class="btn salesforce btn-default" ng-show="isShowAddUsersOptions" ng-disabled="isUserLoading" ng-click="confirmGetSalesforceContacts()" ng-class="{'userButtonSelected' : isContacts}">
+            <img src="/assets/salesforce-color-icon.png" width="40" />Contacts</button>
+          <button id="importFromCsvBtn" type="button" ladda="isCsvUserLoading" data-spinner-color="#5a5c6c" data-style="slide-down" class="btn salesforce btn-default" ng-show="isShowAddUsersOptions" ng-click="confirmGetCsvUsers()" ng-class="{'userButtonSelected' : isCsv}" ng-disabled="isContactUserLoading || isUserLoading">
+          <img src="/assets/file.png" width="20" />CSV/XLS(X)</button>
+        </div>
+        <!-- Salesforce Leads Import -->
+        <div class="usersArea" ng-show="displayLeads">
+          <div ng-hide="isActiveCampaignEnabled" class="filters">
+            <h4><i class="icon-filter"></i> Filters</h4>
+            <div class="filterField">
+              <div class="row-fluid">
+                <div ng-repeat="filter in userFilters | toArray | orderBy:'index'" class="filterOption">
+                  <div class="span4">
+                    <div class="span2">
+                      <h6>{{filter.display}}</h6>
+                    </div>
+                    <div class="span5">
+                      <select ng-model="filter.type" ng-change="onChangeFilter()">
+                        <option value="con">contains</option>
+                        <option value="nc">doesn't contain</option>
+                        <option value="eq">equal to</option>
+                        <option value="ne">not equal to</option>
+                      </select>
+                    </div>
+                    <div class="span4 pull-left">
+                      <input class="filterValue pull-left" type="text" placeholder="Value" ng-model="filter.value" ng-change="onChangeFilter()" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="userTable" ng-class="{loading:isUserLoading}">
+            <table class="table table-fixed table-bordered" id="userTable" st-pipe="userCallServer" st-table="userRowCollection" st-pagination-scroll="">
+              <thead>
+                <tr>
+                  <th width="2%" ng-hide="isActiveCampaignEnabled">
+                    <select-all-checkbox checkboxes="userRowCollection" all-selected="AllSelectedUsers" all-clear="NoSelectedUsers">
+                    </select-all-checkbox>
+                  </th>
+                  <th width="14%">User Name</th>
+                  <th width="18%">Company</th>
+                  <th width="15%">Title</th>
+                  <th width="15%">Email</th>
+                  <th width="9%">Industry</th>
+                  <th width="9%">City</th>
+                  <th width="8%">Zip</th>
+                  <th width="7%">State</th>
+                </tr>
+              </thead>
+              <tbody class="tableBody" id="userTableBody">
+                <tr class="noUsers" ng-show="!userCount">
+                  <td class="noUsersText">
+                    {{ noUserText }}
+                  </td>
+                </tr>
+                <tr ng-repeat="user in userRowCollection" ng-hide="!userCount" ng-class="{'st-selected' : user.isSelected &amp;&amp; !isActiveCampaignEnabled}">
+                  <td width="2%" ng-hide="isActiveCampaignEnabled"><input type="checkbox" ng-model="user.isSelected" /></td>
+                  <td width="14%">{{user.Name | emptyObject}}</td>
+                  <td width="18%">{{user.Company | emptyObject}}</td>
+                  <td width="15%">{{user.Title | emptyObject}}</td>
+                  <td class="wordBreak" width="15%">{{user.Email | emptyObject}}</td>
+                  <td width="9%">{{user.Industry | emptyObject}}</td>
+                  <td width="9%">{{user.City | emptyObject}}</td>
+                  <td width="8%">{{user.PostalCode | emptyObject}}</td>
+                  <td width="7%">{{user.State | emptyObject}}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Salesforce Contacts Import -->
+        <div class="usersArea" ng-show="displayContacts">
+          <div ng-hide="isActiveCampaignEnabled" class="filters">
+            <h4><i class="icon-filter"></i> Filters</h4>
+            <div class="filterField">
+              <div class="row-fluid">
+                <div ng-repeat="filter in userContactFilters | toArray | orderBy:'index'" class="filterOption">
+                  <div class="span4">
+                    <div class="span2">
+                      <h6>{{filter.display}}</h6>
+                    </div>
+                    <div class="span5">
+                      <select ng-model="filter.type" ng-change="onChangeContactFilter()">
+                        <option value="con">contains</option>
+                        <option value="nc">doesn't contain</option>
+                        <option value="eq">equal to</option>
+                        <option value="ne">not equal to</option>
+                      </select>
+                    </div>
+                    <div class="span4 pull-left">
+                      <input class="filterValue pull-left" type="text" placeholder="Value" ng-model="filter.value" ng-change="onChangeContactFilter()" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="userTable" ng-class="{loading:isContactUserLoading}">
+            <table class="table table-fixed table-bordered" id="userTable" st-pipe="userContactCallServer" st-table="userContactRowCollection" st-pagination-scroll="">
+              <thead>
+              <tr>
+                <th width="2%" ng-hide="isActiveCampaignEnabled">
+                  <select-all-checkbox checkboxes="userContactRowCollection" all-selected="AllSelectedUsers" all-clear="NoSelectedUsers">
+                  </select-all-checkbox>
+                </th>
+                <th width="14%">User Name</th>
+                <th width="18%">Account</th>
+                <th width="15%">Title</th>
+                <th width="15%">Email</th>
+                <th width="9%">City</th>
+                <th width="8%">Zip</th>
+                <th width="7%">State</th>
+              </tr>
+              </thead>
+              <tbody class="tableBody" id="userTableBody">
+              <tr class="noUsers" ng-show="!userContactCount">
+                <td class="noUsersText">
+                  {{ noContactUserText }}
+                </td>
+              </tr>
+              <tr ng-repeat="user in userContactRowCollection" ng-hide="!userContactCount" ng-class="{'st-selected' : user.isSelected &amp;&amp; !isActiveCampaignEnabled}">
+                <td width="2%" ng-hide="isActiveCampaignEnabled"><input type="checkbox" ng-model="user.isSelected" /></td>
+                <td width="14%">{{user.Name | emptyObject}}</td>
+                <td width="18%">{{user.Account.Name | emptyObject}}</td>
+                <td width="15%">{{user.Title | emptyObject}}</td>
+                <td class="wordBreak" width="15%">{{user.Email | emptyObject}}</td>
+                <td width="9%">{{user.MailingCity | emptyObject}}</td>
+                <td width="8%">{{user.MailingPostalCode | emptyObject}}</td>
+                <td width="7%">{{user.MailingState | emptyObject}}</td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- CSV Contacts Import -->
+        <div class="usersArea" ng-show="displayCsvUsers">
+          <ng-csv-import content="csv.content" result="csv.result" ng-hide="isActiveCampaignEnabled"></ng-csv-import>
+          <div class="userTable">
+            <table class="table table-fixed table-bordered" id="userTable">
+              <thead>
+              <tr>
+                <th width="50%">Name</th>
+                <th width="50%">Email</th>
+              </tr>
+              </thead>
+              <tbody class="tableBody" id="userTableBody">
+              <tr class="noUsers" ng-show="!csvUserCount">
+                <td class="noUsersText">
+                  {{ noUserText }}
+                </td>
+              </tr>
+              <tr ng-repeat="data in csv.result" ng-hide="!csvUserCount">
+                <td width="50%"><span ng-bind="data.Name"></span></td>
+                <td width="50%"><span ng-bind="data.Email"></span></td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <button id="doneAddUsersBtn" class="ladda-button usersDone" ng-click="hideAddUsers()">
+          Done
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="row-fluid m-top-5">
+    <div class="campaignSecondHeader clearfix">
+      <input class="campaignFrom pull-left" type="text" ng-model="campaignFrom.email" ng-disabled="true" />
+      <div ng-hide="isActiveCampaignEnabled" ng-disabled="isDisable" class="pull-left search-input-con">
+        <input placeholder="Add a Topic" type="text" class="topicInput" />
+      </div>
+      <div ng-hide="!isActiveCampaignEnabled" ng-disabled="true" class="pull-left search-input-con">
+        <input ng-disabled="true" ng-model="topic.name" type="text" class="activeTopicInout" />
+      </div>
+      <ng-timepicker ng-model="endTime" style="margin-right:0px;" class="pull-right" step="05" ng-disabled="isDisable" ng-readonly="isDisable">
+      </ng-timepicker>
+      <div class="datePickerGroup pull-right">
+        <datepicker date-format=" MM/dd/yyyy" date-min-limit="{{startDate}}">
+          <input ng-disabled="isDisable" class="datePicker" placeholder="End Date" ng-model="endDate" type="text" />
+        </datepicker>
+        <i class="icon-calendar"></i>
+      </div>
+      <ng-timepicker ng-model="startTime" style="margin-right:0px;" class="pull-right timepicker" ng-disabled="isDisable" step="05" ng-readonly="isDisable">
+      </ng-timepicker>
+      <div class="datePickerGroup pull-right">
+        <datepicker date-format=" MM/dd/yyyy" date-min-limit="{{currentDate}}">
+          <input ng-disabled="isDisable" class="datePicker" placeholder="Start Date" ng-model="startDate" type="text" />
+        </datepicker>
+        <i class="icon-calendar"></i>
+      </div>
+    </div>
+  </div>
+  <div class="row-fluid m-top-5">
+    <div class="campaignEmailSubjectBody">
+      <div class="row-fluid">
+        <div class="span3">
+          <input ng-disabled="isDisable" class="campaignSubject" ng-model="campaignSubject" type="text" placeholder="Campaign Subject" maxlength="254" />
+        </div>
+        <div class="search-input-con pull-right" ng-show="!isDisable">
+          <input class="input-flat full-width js-campaign-template-input" type="text" placeholder="Choose Template" maxlength="254" />
+        </div>
+        <div class="pull-right search-input-con" ng-show="isDisable">
+          <input class="input-flat full-width" ng-disabled="isDisable" type="text" placeholder="Choose Template" maxlength="254" ng-model="campaignTemplateName" />
+        </div>
+      </div>
+    </div>   
+    <div class="campaignEmailTemplateBody">      
+      <div class="row-fluid custom-tinymce" ng-show="!isDisable">
+        <textarea class="campaignBody" ui-tinymce="{{tinymceOptionsActive}}" id="templateBodyActive" ng-model="campaignBody" rows="3" ng-init="'Dear @User,&lt;br&gt;&lt;br&gt;I hope this email finds you well. I think you will find @Topic_Name interesting.'
+                            + '&lt;br&gt;Please feel free to reach out to me with any questions.&lt;br&gt;&lt;br&gt;@Topic_Url&lt;br&gt;&lt;br&gt;Best Regards,'
+                            + '&lt;br&gt;@Campaign_Owner';"></textarea>
+      </div>
+      <div class="row-fluid custom-tinymce" ng-show="isDisable">
+        <textarea class="campaignBody" ui-tinymce="{{tinymceOptionsDisabled}}" id="templateBodyDisable" disable="true" ng-model="campaignBodyDisabled" rows="3" ng-init="'Dear @User,&lt;br&gt;&lt;br&gt;I hope this email finds you well. I think you will find @Topic_Name interesting.'
+                  + '&lt;br&gt;Please feel free to reach out to me with any questions.&lt;br&gt;&lt;br&gt;@Topic_Url&lt;br&gt;&lt;br&gt;Best Regards,'
+                  + '&lt;br&gt;@Campaign_Owner';"></textarea>
+
+      <!-- <textarea class="campaignBody" ng-disabled="isDisable" ui-tinymce="tinymceOptions" ng-model="campaignBody"></textarea> -->
+      </div>
+      <h5>Hint: The keywords starting with '@' represent reserved fields which will be filled automatically when an Email is shared with the user. Please do not modify or remove any of the keywords except for @User_First_Name; you can replace this with @User_Last_Name.</h5>
+    </div>
+  </div>
+</div>
+      <div ng-show="isShowTemplateList">
+  <div class="row-fluid m-top-20">
+    <h3 class="span4">Templates</h3>
+    <div class="pull-right campaign-actions">
+      <button class="ladda-button campaign-btn" ng-click="viewCampaignsList()" ng-disabled="isLoading">
+        Campaigns
+      </button>
+      <button id="newTemplateButton" class="ladda-button campaign-launch-btn " ng-click="showCreateTemplate()" ng-show="isManagerAboveAccess" ng-disabled="isLoading">
+        New Template
+      </button>
+    </div>
+  </div>
+  <div class="row mgmt-table-con m-top-20 m-bottom-20" ng-class="{loading:isLoading}">
+    <table class="table table-hover" id="templatesTable" st-table="templates">
+      <thead>
+        <tr><th width="40%">
+          <span>Template Name</span>
+        </th>
+        <th class="align-left" width="40%">
+          <span>Created By</span>
+        </th>
+        <th class="align-left" width="20%">
+          <span>Last Updated</span>
+        </th>
+        <!--<th st-sort="clicked" width="9%">
+          <span>Clicked</span>
+          <div class="sort-indicator-icons">
+            <span class="icon-caret-down"></span>
+            <span class="icon-caret-up"></span>
+          </div>
+        </th>
+        <th st-sort="opened" width="9%">
+          <span>Opened</span>
+          <div class="sort-indicator-icons">
+            <span class="icon-caret-down"></span>
+            <span class="icon-caret-up"></span>
+          </div>
+        </th>
+        <th st-sort="clickRatio" width="13%">
+          <span>Click to Open Ratio</span>
+          <div class="sort-indicator-icons">
+            <span class="icon-caret-down"></span>
+            <span class="icon-caret-up"></span>
+          </div>
+        </th>
+        <th st-sort="numInteracted" width="10%">
+          <span>Viewed Content</span>
+          <div class="sort-indicator-icons">
+            <span class="icon-caret-down"></span>
+            <span class="icon-caret-up"></span>
+          </div>
+        </th>
+        <th st-sort="createdBy" width="10%">
+          <span>Created By</span>
+          <div class="sort-indicator-icons">
+            <span class="icon-caret-down"></span>
+            <span class="icon-caret-up"></span>
+          </div>
+        </th>-->
+        
+      </tr></thead>
+      <tbody id="templatesTableBody" ng-class="{disable:isTableDisabled()}" ng-style="styleHeight()" resize="">
+        <tr ng-show="templates.length == 0" ng-style="styleHeight()" resize="">
+          <td class="noCampaigns">
+              No template available
+          </td>
+        </tr>
+        <tr ng-repeat="template in templates" ng-click="viewTemplate(template.id)" ng-disabled="isLoading">
+          <td class="wordBreak align-left" width="40%">
+            <span ng-bind="template.name"></span>
+          </td>
+          <td class="wordBreak align-left" width="40%">
+            <span ng-bind="template.createdBy.name"></span>
+          </td>
+          <td class="wordBreak align-left" width="20%">
+            <span ng-bind="template.lastUpdated"></span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+      <div ng-show="isShowTemplateCreate">
+  <div class="row-fluid m-top-20">
+    <input id="templateNameInput" type="text" class="input-flat" placeholder="Template Name" ng-model="template.name" ng-show="isManagerAboveAccess" />
+    <input type="text" class="input-flat" placeholder="Template Name" ng-model="disabledTemplateName" ng-show="!isManagerAboveAccess" disabled="" />
+    <div class="pull-right campaign-actions">
+      <button class="ladda-button campaign-btn" ng-click="showTemplateList()">
+        Back
+      </button>
+      <button class="ladda-button campaign-btn" ng-click="useTemplate()">
+        Use Template
+      </button>
+      <button class="ladda-button campaign-btn" ng-click="previewTemplate()">
+        Preview
+      </button>
+      <button class="ladda-button campaign-btn" ng-click="showSaveAsModal()" ng-show="isManagerAboveAccess">
+        Save as
+      </button>
+      <button id="saveTemplate" class="ladda-button campaign-launch-btn " ng-show="isManagerAboveAccess" ng-click="saveTemplate()" ng-disabled="!isTemplateDirty" ng-class="isTemplateDirty? '': 'disabled'">
+        Save Template
+      </button>
+    </div>
+  </div>
+  <div class="row-fluid m-top-50">
+    <div class="search-input-con pull-left">
+      <input type="text" class="js-template-input typehead" placeholder="Choose Template" />
+    </div>
+  </div> 
+  <div class="row-fluid m-top-10">
+    <div class="campaignEmailTemplateBody">      
+      <div class="row-fluid custom-tinymce" ng-show="isManagerAboveAccess">
+        <textarea class="campaignBody" ui-tinymce="templateTinymceConfAct" id="templateBodyActive" ng-model="template.body" rows="3" ng-init="'Dear @User,&lt;br&gt;&lt;br&gt;I hope this email finds you well. I think you will find @Topic_Name interesting.'
+                            + '&lt;br&gt;Please feel free to reach out to me with any questions.&lt;br&gt;&lt;br&gt;@Topic_Url&lt;br&gt;&lt;br&gt;Best Regards,'
+                            + '&lt;br&gt;@Campaign_Owner';"></textarea>
+      </div>
+      <div class="row-fluid custom-tinymce" ng-show="!isManagerAboveAccess">
+        <textarea class="campaignBody" ng-model="template.body" ng-disabled="!isManagerAboveAccess" ui-tinymce="templateTinymceConfDis"></textarea>
+      </div>
+      <h5>Hint: The keywords starting with '@' represent reserved fields which will be filled automatically when an Email is shared with the user. Please do not modify or remove any of the keywords except for @User_First_Name; you can replace this with @User_Last_Name.</h5>
+    </div>
+  </div>
+</div>
+<div id="previewTemplateModal" class="eltropy-modal modal hide fade" tabindex="5" role="dialog" aria-labelledby="previewCampaign" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+    <!--<h3>{{campaignHeader}} <span>Preview</span></h3>-->
+    <h3><span>Preview</span></h3>
+  </div>
+  <div class="modal-body eltropy-classic-form m-top-20">
+    <div class="email">
+      <div class="row-fluid">
+        <div class="span12 pull-left">
+          <h5 class="previewBody"></h5>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button class="btn confirmLaunch" ng-click="launchCampaign()" ng-hide="!isLaunch" aria-hidden="true">Launch</button>
+    <button class="btn closePreview" ng-hide="!isLaunch" data-dismiss="modal" aria-hidden="true"> Edit Campaign</button>
+    <button class="btn closePreview btn-close" ng-show="!isLaunch" data-dismiss="modal" aria-hidden="true"> Close</button>
+  </div>
+</div>
+<div id="saveAsModal" class="eltropy-modal modal hide fade" tabindex="1" role="dialog" aria-labelledby="saveAsModal" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+    <h3>Save as</h3>
+  </div>
+
+  <div class="modal-body m-top-20" data-bind="with:tempInvitedUser">
+    <input type="text" class="input-flat" style="width: 95%;display:inline-block;" placeholder="Template name" ng-model="tmpTemplateName" />
+  </div>
+
+  <div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
+    <button class="btn btn-primary" ng-click="saveAsTemplate()">Save</button>
+  </div>
+</div>
+    </div>
+  </div>
+</div>
+
+          
+
+          
+          
+            <div class="tab-pane row-fluid" id="lI" ng-controller="CollateralMapCtrl">
+  <div class="formPane collateralMapTab">
+    <div class="container-fluid">
+      <div class="row-fluid m-top-20">
+        <div class="span4">
+          <div class="topic-search-con">
+            <input placeholder="Search Chapters" ng-model="searchCollateralKey" ng-change="searchCollaterals()" class="row-fluid topic-search" ng-model-options="{ updateOn: 'default blur', debounce: {'default': 500, 'blur': 0} }" />
+            <i class="icon-search"></i>
+          </div>
+        </div>
+        <div class="span8">
+          <div class="pull-right">
+          <center>
+            <button class="upload" ng-disabled="!isSubtopicSelected" ng-click="uploadChapters()">
+              + Add chapters
+            </button>
+            <button class="copy" ng-disabled="!isContentSelected" ng-model="getCopyButtonText" ng-click="copyClicked()">
+                {{getCopyButtonText}}
+            </button>
+            <button class="copy" ng-disabled="!isDeleteSelected" ng-click="deleteClicked()">
+                Delete Chapters
+            </button>
+            <button class="copy" ng-disabled="!isDeleteSelected" ng-click="uploadChapters()">
+                Replace Chapters
+            </button>
+            <button class="refresh" ng-click="refreshClicked()">
+                <i class="icon-refresh"></i>
+            </button>
+          <center>
+          </center></center></div>
+        </div>
+      </div>
+
+      <div id="uploadChapters" class="eltropy-modal modal hide fade" tabindex="-1" role="dialog" aria-labelledby="chapterLabel" aria-hidden="true">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+          <div class="row-fluid">
+            <div class="span4">
+              <h3 id="myModalLabel">Chapter</h3>
+            </div>
+          </div>
+        </div>
+        <div class="modal-body p-top-20">
+          <div id="alert-chapterModal" class="alert alert-error fade in hide"></div>
+          <span class="btn fileinput-button">
+            <i class="icon-upload"></i>
+            <span>Upload Document</span>
+            <div id="chapter-upload-progress" class="progress">
+              <div class="progress-bar progress-bar-success"></div>
+            </div>
+            <!-- The file input field used as target for the file upload widget -->
+            <input id="fileupload" type="file" name="uploadFile" />
+            <i class="btn e-icon-a icon-info" data-container="body" data-trigger="hover" data-placement="top" data-toggle="popover" data-original-title="Supported Formats" data-content="mp4, doc, docx, pdf, odt, pot, potm, potx, pps, ppsm, ppsx, ppt, pptm, pptx, xlsb, xlsm, xls,
+                             xlsx, jpg, jpeg, png, gif and zip"></i>
+          </span>
+          <form id="chapterEditForm" class="form-horizontal" name="chapterUploadForm">
+            <div class="control-group">
+              <label class="control-label" for="chapterTitle">Title *</label>
+              <div class="controls">
+                <input type="text" id="chapterTitle" placeholder="Chapter Name" ng-model="chapter.name" />
+              </div>
+            </div>
+            <div class="control-group">
+              <label class="control-label" for="inputDesc">Description</label>
+              <div class="controls">
+                <textarea id="inputDesc" rows="4" placeholder="Chapter Description" ng-model="chapter.description"></textarea>
+              </div>
+            </div>
+            <div class="control-group">
+              <label class="control-label" for="inputURL">URL *</label>
+              <div class="controls">
+                <input type="text" id="inputURL" placeholder="http://www.example.com" data-placement="right" ng-disabled="isUploadDone" ng-model="chapter.url" />
+              </div>
+            </div>
+            <div class="control-group">
+              <label class="control-label" for="isChapterShareable">Allow Sharing</label>
+              <div class="controls">
+                <input id="isChapterShareable" type="checkbox" style="margin-top:9px" ng-model="chapter.isShareable" />
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button id="closeChapterModalBtn" class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+          <button id="saveChapterBtn" ng-click="createChapters()" ladda="saveChangesLoading" data-spinner-color="#5a5c6c" data-style="slide-down" ng-disabled="saveButtonDisable" class="ladda-button btn btn-primary">
+            Save Changes
+          </button>
+        </div>
+      </div>
+
+      
+      <div ng-show="modulesEnabled">
+        <div class="row-fluid m-top-20" ng-show="searchResultWhenModulesEnabled">
+          <div class="collateralMap span12">
+            <div class="span3 moduleList">
+              <div class="row-fluid ">
+                <div class="moduleHeader"> MODULES </div>
+                <hr class="moduleHeaderBorder" />
+              </div>
+              <div class="row-fluid">
+                <div class="moduleListContent">
+                  <div ng-repeat="module in modules" ng-class="{'moduleListSelected': $index == moduleIndex.number }" ng-click="moduleClicked($index, module.moduleId)" class="moduleElement">
+                    <div class="row-fluid" ng-click="getTopics(module.moduleId, module.moduleName)">
+                      <div class="span9">
+                        <li>{{module.moduleName}}</li>
+                      </div>
+                      <div class="span3 bubble">
+                        <span class="collateralNotificationBubble" ng-show="module.noOfUpdates">{{module.noOfUpdates}}</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="span3 topicList">
+              <div class="row-fluid ">
+                <div class="topicHeader"> TOPICS </div>
+                <hr class="topicHeaderBorder" />
+              </div>
+              <div ng-class="{'topicContentOverlay': isContentLoading}">
+                <div class="row-fluid">
+                  <div class="topicListContent">
+                    <div ng-repeat="topic in topics" ng-class="{'topicListSelected': $index == topicIndex }" ng-click="topicClicked($index)" class="topicElement">
+                      <div class="row-fluid" ng-click="getSubTopics(topic.topicId)">
+                        <div class="span1">
+                          <input type="checkbox" ng-show="!topicCheckboxes" ng-checked="checkTopicItem(topic.topicId)" ng-click="topicSelected(topic.topicId)" />
+                        </div>
+                        <div class="span9">
+                          <li>{{topic.topicName}}</li>
+                        </div>
+                        <div class="span2 bubble">
+                          <span class="collateralNotificationBubble" ng-show="topic.noOfUpdates">{{topic.noOfUpdates}}</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="span3 subtopicList">
+              <div class="row-fluid">
+                <div class="subtopicHeader"> SUBTOPICS </div>
+                <hr class="subtopicHeaderBorder" />
+              </div>
+              <div ng-class="{'subtopicContentOverlay': isContentLoading}">
+                <div class="row-fluid">
+                  <div class="subtopicListContent" ng-show="displaySubtopics">
+                    <div ng-repeat="subtopic in subtopics" ng-class="{'subtopicListSelected': $index == subtopicIndex }" ng-click="subtopicClicked($index)" class="subtopicElement">
+                      <div class="row-fluid" ng-click="getChapters(subtopic.subtopicId, subtopic)">
+                        <div class="span1">
+                          <input type="checkbox" ng-show="!subtopicCheckboxes" ng-disabled="subtopicCheckboxes" id="{{subtopic.subtopicId}}" ng-checked="checkItem(subtopic.subtopicId)" ng-click="subtopicSelected(subtopic.subtopicId)" />
+                        </div>
+                        <div class="span9">
+                          <li>{{subtopic.subtopicName}}</li>
+                        </div>
+                        <div class="span2 bubble">
+                          <span class="collateralNotificationBubble" ng-show="subtopic.noOfUpdates">{{subtopic.noOfUpdates}}</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>  
+            </div>
+            <div class="span3 chapterList">
+              <div class="row-fluid">
+                <div class="chapterHeader"> CHAPTERS </div>
+                <hr class="chapterHeaderBorder" />
+              </div>
+              <div ng-class="{'chapterContentOverlay': isContentLoading}">
+                <div class="row-fluid">
+                  <div class="chapterListContent" ng-show="displayChapters">
+                    <div ng-show="displayChapters" ng-repeat="lesson in lessons" class="chapterElement">
+                      <div class="row-fluid">
+                        <div class="span2">
+                          <input type="checkbox" ng-show="!lessonCheckboxes" ng-disabled="lessonCheckboxes" ng-checked="checkLessonItem(lesson.lessonId)" ng-click="lessonSelected(lesson.lessonId, lesson.type)" />
+                        </div>
+                        <a href="{{lesson.url}}">
+                          <div class="span1">
+                            <span class="pull-left chapterIcon" ng-class="getChapterIcon(lesson.mediaType, lesson.type)"></span>
+                          </div>
+                          <div class="span8">
+                            <li>
+                              {{lesson.lessonName}} <span class="chapterBubble" ng-show="lesson.isUpdated">UPDATED</span>
+                            </li>
+                          </div>
+                        </a>
+                        
+                          <div class="span1">
+                            <span class="pull-left downloadIcon" ng-show="lesson.downloadUrl">
+                              <a href="{{lesson.downloadUrl}}" target="_blank" download="">
+                                <i class="icon-download-alt"></i>
+                              </a>
+                            </span>
+                          </div>
+                        
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div ng-show="!searchResultWhenModulesEnabled" class="row-fluid m-top-20">
+          <div class="row-fluid">
+            <div class="span3 searchModuleHeader">
+              <div class="searchHeaderName"> MODULES </div>
+              <hr class="moduleHeaderBorder" />
+            </div>
+            <div class="span3 searchTopicHeader">
+              <div class="searchHeaderName"> TOPICS </div>
+              <hr class="topicHeaderBorder" />
+            </div>
+            <div class="span3 searchSubtopicHeader">
+              <div class="searchHeaderName"> SUBTOPICS </div>
+              <hr class="subtopicHeaderBorder" />
+            </div>
+            <div class="span3 searchChapterHeader">
+              <div class="searchHeaderName"> CHAPTERS</div>
+              <hr class="chapterHeaderBorder" />
+            </div>
+          </div>
+          <div class="searchListContent">
+            <div ng-class="{'searchContentOverlay': isContentLoading}">
+              <center ng-show="nullSearch"><h4 class="nullSearch">No chapters were found.</h4></center>
+              <div class="searchCollateralMap span12 repeated-item" ng-repeat="list in searchResult">
+                <div class="span3 searchModuleList">
+                  <div class="searchModuleListContent">
+                    <div class="searchContent">{{list.moduleName}}</div>
+                  </div>
+                </div>
+                <div class="span3 searchTopicList">
+                  <div class="searchTopicListContent">
+                    <div class="searchTopicContent">{{list.topicName}}</div>
+                  </div>
+                </div>
+                <div class="span3 searchSubtopicList">
+                  <div class="searchSubtopicListContent">
+                    <div class="searchSubtopicContent">{{list.subtopicName}}</div>
+                  </div>
+                </div>
+                <div class="span3 searchChapterList">
+                  <div class="searchChapterListContent">
+                    <div class="row-fluid">
+                      <div class="span2">
+                        <input type="checkbox" ng-show="!lessonCheckboxes" ng-disabled="lessonCheckboxes" ng-checked="checkLessonItem(list.lessonId)" ng-click="lessonSelected(list.lessonId, list.lessonType, list.subtopicId)" />
+                      </div>
+                      <a href="{{list.chapterUrl}}">
+                        <div class="span1 selectedCollateralMap">
+                          <span class="pull-left chapterIcon" ng-class="getChapterIcon(list.mediaType, list.type)"></span>
+                        </div>
+                        <div class="span8 selectedCollateralMap">
+                          <div class="searchChapterContent">{{list.lessonName}}</div>
+                        </div>
+                      </a>
+                      
+                        <div class="span1">
+                          <span class="pull-left downloadIcon" ng-show="list.downloadUrl">
+                            <a href="{{list.downloadUrl}}" target="_blank" download="">
+                              <i class="icon-download-alt"></i>
+                            </a>
+                          </span>
+                        </div>
+                      
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div ng-show="displaySelectedContent">
+          <div class="row-fluid">
+            <div class="selectedListContent">
+              <div class="selectedCollateralMap span12 repeated-item" ng-repeat="list in selectionList">
+                <div class="span3 selectedModuleList">
+                  <div class="row-fluid">
+                    <div class="selectedModuleListContent">
+                      <div class="selectedContent">{{list.moduleName}}</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="span3 selectedTopicList">
+                  <div class="row-fluid">
+                    <div class="selectedTopicListContent">
+                      <div class="selectedTopicContent">{{list.topicName}}</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="span3 selectedSubtopicList">
+                  <div class="row-fluid">
+                    <div class="selectedSubtopicListContent">
+                      <input type="checkbox" ng-show="!subtopicCheckboxes" id="{{list.subtopicId}}" ng-checked="checkItem(list.subtopicId)" ng-click="subtopicSelected(list.subtopicId)" />
+                      <div class="selectedSubtopicContent">{{list.subtopicName}}</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="span3 selectedChapterList">
+                  <div class="row-fluid selectedChapterListContent">
+                    <div class="span2">
+                      <input type="checkbox" ng-show="!lessonCheckboxes" ng-checked="checkLessonItem(list.lessonId)" ng-click="lessonSelected(list.lessonId, list.type, list.subtopicId)" />
+                    </div>
+                    <div class="span1 selectedCollateralMap">
+                      <span class="pull-left chapterIcon" ng-class="getChapterIcon(list.mediaType, list.type)"></span>
+                    </div>
+                    <div class="span9 selectedCollateralMap">
+                      <div class="selectedChapterContent">{{list.lessonName}}</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      
+      <div ng-show="!modulesEnabled">
+        <div class="row-fluid m-top-20" ng-show="searchResultWhenModulesEnabled">
+          <div class="collateralMap span12">
+            <div class="span4 topicList moduleDisabledTopicList">
+              <div class="row-fluid ">
+                <div class="topicHeader"> TOPICS </div>
+                <hr class="modulesDisabledTopicHeaderBorder" />
+              </div>
+              <div ng-class="{'topicContentOverlay': isContentLoading}">
+                <div class="row-fluid">
+                  <div class="topicListContent">
+                    <div ng-repeat="topic in topics" ng-class="{'topicListSelected': $index == topicIndex }" ng-click="topicClicked($index)" class="topicElement">
+                      <div class="row-fluid" ng-click="getSubTopics(topic.topicId)">
+                        <div class="span1">
+                          <input type="checkbox" ng-show="!topicCheckboxes" ng-checked="checkTopicItem(topic.topicId)" ng-click="topicSelected(topic.topicId)" />
+                        </div>
+                        <div class="span9">
+                          <li>{{topic.topicName}}</li>
+                        </div>
+                        <div class="span2 bubble">
+                            <span class="collateralNotificationBubble" ng-show="topic.noOfUpdates">{{topic.noOfUpdates}}</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="span4 subtopicList moduleDisabledSubtopicList">
+              <div class="row-fluid">
+                <div class="subtopicHeader"> SUBTOPICS </div>
+                <hr class="subtopicHeaderBorder" />
+              </div>
+              <div ng-class="{'subtopicContentOverlay': isContentLoading}">
+                <div class="row-fluid">
+                  <div class="subtopicListContent">
+                    <div ng-repeat="subtopic in subtopics" ng-class="{'subtopicListSelected': $index == subtopicIndex }" ng-click="subtopicClicked($index)" class="subtopicElement">                    
+                      <div class="row-fluid" ng-click="getChapters(subtopic.subtopicId, subtopic)">
+                        <div class="span1">
+                        <input type="checkbox" ng-disabled="subtopicCheckboxes" id="{{subtopic.subtopicId}}" ng-checked="checkItem(subtopic.subtopicId)" ng-click="subtopicSelected(subtopic.subtopicId)" />
+                        </div>
+                        <div class="span9">
+                          <li>{{subtopic.subtopicName}}</li>
+                        </div>
+                        <div class="span2 bubble">
+                          <span class="collateralNotificationBubble" ng-show="subtopic.noOfUpdates">{{subtopic.noOfUpdates}}</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="span4 chapterList moduleDisabledChapterList">
+              <div class="row-fluid">
+                <div class="chapterHeader"> CHAPTERS </div>
+                <hr class="chapterHeaderBorder" />
+              </div>
+              <div ng-class="{'chapterContentOverlay': isContentLoading}">
+                <div class="row-fluid">
+                  <div class="chapterListContent">
+                    <div ng-show="displayChapters" ng-repeat="lesson in lessons" class="chapterElement">
+                      <div class="row-fluid">
+                        <div class="span2">
+                          <input type="checkbox" ng-disabled="lessonCheckboxes" ng-checked="checkLessonItem(lesson.lessonId)" ng-click="lessonSelected(lesson.lessonId, lesson.type)" />
+                        </div>
+                        <a href="{{lesson.url}}">
+                          <div class="span1">
+                            <span class="pull-left chapterIcon" ng-class="getChapterIcon(lesson.mediaType, lesson.type)"></span>
+                          </div>
+                          <div class="span8">
+                            <li>
+                              {{lesson.lessonName}}<span class="chapterBubble" ng-show="lesson.isUpdated">UPDATED</span>
+                            </li>
+                          </div>
+                        </a>
+                        
+                          <div class="span1">
+                            <span class="pull-left downloadIcon" ng-show="lesson.downloadUrl">
+                              <a href="{{lesson.downloadUrl}}" target="_blank" download="">
+                                <i class="icon-download-alt"></i>
+                              </a>
+                            </span>
+                          </div>
+                        
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div ng-show="!searchResultWhenModulesEnabled" class="row-fluid m-top-20">
+          <div class="row-fluid">
+            <div class="span4 searchModulesDisabledTopicHeader">
+              <div class="searchHeaderName"> TOPICS </div>
+              <hr class="topicHeaderBorder" />
+            </div>
+            <div class="span4 searchModulesDisabledSubtopicHeader">
+              <div class="searchHeaderName"> SUBTOPICS </div>
+              <hr class="subtopicHeaderBorder" />
+            </div>
+            <div class="span4 searchModulesDisabledChapterHeader">
+              <div class="searchHeaderName"> CHAPTERS</div>
+              <hr class="chapterHeaderBorder" />
+            </div>
+          </div>
+          <div class="searchListModulesDisabledContent">
+            <div ng-class="{'searchContentOverlay': isContentLoading}">
+              <center ng-show="nullSearch"><h4 class="nullSearch">No chapters were found.</h4></center>
+              <div class="searchCollateralMap span12 repeated-item" ng-repeat="list in searchResult">
+                <div class="span4 searchModulesDisabledTopicList">
+                  <div class="searchTopicListContent">
+                    <div class="searchTopicContent">{{list.topicName}}</div>
+                  </div>
+                </div>
+                <div class="span4 searchModulesDisabledSubtopicList">
+                  <div class="searchSubtopicListContent">
+                    <div class="searchSubtopicContent">{{list.subtopicName}}</div>
+                  </div>
+                </div>
+                <div class="span4 searchModulesDisabledChapterList">
+                  <div class="searchChapterListContent">
+                    <div class="row-fluid">
+                      <div class="span2">
+                        <input type="checkbox" ng-show="!lessonCheckboxes" ng-disabled="lessonCheckboxes" ng-checked="checkLessonItem(list.lessonId)" ng-click="lessonSelected(list.lessonId, list.lessonType, list.subtopicId)" />
+                      </div>
+                      <a href="{{list.chapterUrl}}">
+                        <div class="span1 selectedCollateralMap">
+                          <span class="pull-left chapterIcon" ng-class="getChapterIcon(list.mediaType, list.type)"></span>
+                        </div>
+                        <div class="span8 selectedCollateralMap">
+                          <div class="modulesDisabledSearchChapterContent">{{list.lessonName}}</div>
+                        </div>
+                      </a>
+                      
+                        <div class="span1">
+                          <span class="pull-left downloadIcon" ng-show="list.downloadUrl">
+                            <a href="{{list.downloadUrl}}" target="_blank" download="">
+                              <i class="icon-download-alt"></i>
+                            </a>
+                          </span>
+                        </div>
+                      
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div ng-show="displaySelectedContent" class="fadein fadeout">
+          <div class="row-fluid">
+            <div class="modulesDisabledSelectedListContent">
+              <div class="selectedCollateralMap span12" ng-repeat="list in selectionList">
+                <div class="span4 selectedTopicList selectedModulesDisabledTopicList">
+                  <div class="row-fluid">
+                    <div class="selectedTopicListContent">
+                      <div class="selectedTopicContent">{{list.topicName}}</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="span4 selectedSubtopicList selectedModulesDisabledSubtopicList">
+                  <div class="row-fluid">
+                    <div class="selectedSubtopicListContent">
+                      <input type="checkbox" ng-show="!subtopicCheckboxes" id="{{list.subtopicId}}" ng-checked="checkItem(list.subtopicId)" ng-click="subtopicSelected(list.subtopicId)" />
+                      <div class="selectedContent">{{list.subtopicName}}</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="span4 selectedChapterList selectedModulesDisabledChapterList">
+                  <div class="row-fluid selectedChapterListContent">
+                    <div class="span2">
+                      <input type="checkbox" ng-show="!lessonCheckboxes" ng-checked="checkLessonItem(list.lessonId)" ng-click="lessonSelected(list.lessonId, list.type, list.subtopicId)" />
+                    </div>
+                    <div class="span1 selectedCollateralMap">
+                      <span class="pull-left chapterIcon" ng-class="getChapterIcon(list.mediaType, list.type)"></span>
+                    </div>
+                    <div class="span9 selectedCollateralMap">
+                      <div class="selectedChapterContent">{{list.lessonName}}</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> 
+  </div>    
+</div>
+          
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="newDiscussionModal" class="eltropy-modal modal hide fade user-dashboard-modal" tabindex="-1" role="dialog" aria-labelledby="subTopicLabel" aria-hidden="true" data-bind="with: $root.tempDiscussion">
+    <div class="modal-header gdrive-modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+      <h3 id="myModalLabel" data-bind="text: id == null?'New Discussion':'Edit Discussion'"></h3>
+    </div>
+
+    <div class="modal-body eltropy-classic-form p-top-20">
+      <div id="alert-newDiscussionModal" class="alert alert-error fade in hide"></div>
+      <div class="row-fluid">
+        <input type="text" placeholder="Discussion Subject" data-bind="value: title" class="span12" />
+        <textarea placeholder="Discussion Content" class="span12" data-bind="value: description"></textarea>
+      </div>
+      
+    </div>
+
+    <div class="modal-footer">
+      <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+      <button class="btn btn-primary" data-bind="click: createDiscussion, text: id == null?'Create':'Save'"></button>
+    </div>
+  </div>
+  <div id="newModuleModal" class="eltropy-modal modal hide fade user-dashboard-modal" tabindex="-1" role="dialog" aria-labelledby="subTopicLabel" aria-hidden="true" data-bind="with: $root.tempModule">
+    <div class="modal-header gdrive-modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+      <h3 id="moduleModalLabel" data-bind="text: id()?'Edit Module':'New Module'"></h3>
+    </div>
+
+    <div class="modal-body eltropy-classic-form p-top-20">
+      <div id="alert-newModuleModal" class="alert alert-error fade in hide"></div>
+      <div class="row-fluid">
+        <input id="id-moduleName" type="text" placeholder="Module Name" data-bind="value: name" class="span12" />
+        <textarea id="id-moduleDescription" type="text" placeholder="Module Description" class="span12" data-bind="value: description"></textarea>
+        
+          <input id="id-moduleGroupName" type="text" placeholder="Module Group Name" data-bind="value: moduleGroupName" class="span12" />
+        
+      </div>
+    </div>
+
+    <div class="modal-footer">
+      <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+      <button class="btn btn-primary" data-bind="click: saveModule, text: id == null?'Create':'Save'"></button>
+    </div>
+  </div>
+  <div id="newTopicModal" class="eltropy-modal modal hide fade user-dashboard-modal" tabindex="-1" role="dialog" aria-labelledby="subTopicLabel" aria-hidden="true" data-bind="with: $root.tempTopic">
+    <div class="modal-header gdrive-modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+      <h3>New Topic</h3>
+    </div>
+
+    <div class="modal-body eltropy-classic-form p-top-20">
+      <div id="alert-newTopicModal" class="alert alert-error fade in hide"></div>
+      <div class="row-fluid">
+        <input id="topicName" type="text" placeholder="Topic Name" data-bind="value: name" class="span12" />
+        <textarea placeholder="Topic Description" class="span12" data-bind="value: description"></textarea>
+      </div>
+    </div>
+
+    <div class="modal-footer">
+      <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+      <button class="btn btn-primary" data-bind="click: $root.createTopic, text: id == null?'Create':'Save'"></button>
+    </div>
+  </div>
+  
+  <div id="editTopicMailTemplateModal" class="eltropy-modal modal hide fade" tabindex="5" role="dialog" aria-labelledby="topicMailTemplateLabel" aria-hidden="true">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+      <h3>Edit Share Email Template</h3>
+    </div>
+
+    <div class="modal-body eltropy-classic-form m-top-20">
+      <div class="row-fluid">
+        <h5>Subject</h5>
+        <input placeholder="Share email subject" class="span12 email-subject" type="text" data-bind="value: $root.currentTopicExternalShareEmailTemplate.subject" />
+        
+      </div>
+      <div class="row-fluid custom-tinymce">
+        <h5>Body</h5>
+        <div class="tinymceLoader" data-bind="visible: $root.isTinymceLoading()">
+          <img src="/assets/loader-alt-2d43d78d069f2a00f008ff949cff665f.gif" height="70" width="70" />
+        </div>
+        <textarea id="tiny-email-body" placeholder="Share email template" class="span12 email-body" data-bind="value: $root.currentTopicExternalShareEmailTemplate.body, visible: !$root.isTinymceLoading()">        </textarea>
+      </div>
+    </div>
+    <div class="modal-hint">
+      <h5 class="email-hint">
+        Hint: The keywords starting with '@' represent reserved fields which will be filled
+        automatically when a topic is shared by the user. Please do not modify or remove them.
+      </h5>
+    </div>
+    <div class="modal-footer">
+      <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+      <button id="templateSaveButton" class="btn btn-primary" data-bind="click: $root.updateTopicShareEmailTemplate">Save Changes</button>
+    </div>
+  </div>
+  <script type="text/html" id="popoverTemplate">
+    &lt;div class="eltropy-classic-form share-popover" data-bind="click: function() { return true; }, clickBubble: false"&gt;
+      &lt;div class="share-popover-tab-con clearfix"
+           data-bind="css: 'sp-' + $root.allowedShareTypes().length + '-tabs'"&gt;
+        &lt;div class="share-popover-tab"
+             data-bind="click: $root.changeShareType.bind($data, 'single'),
+                        css: $root.shareModalActiveTab() == 'single' ? 'active' : ''"&gt;
+          &lt;i class="icon-user"&gt;&lt;/i&gt;
+        &lt;/div&gt;
+        &lt;!-- ko if: $root.domainSettings().allowBulkSharingOfTopic --&gt;
+        &lt;div id="groupShareTab" class="share-popover-tab"
+             data-bind="click: $root.changeShareType.bind($data, 'bulk'),
+                        css: $root.shareModalActiveTab() == 'bulk' ? 'active' : ''"&gt;
+          &lt;i class="icon-group"&gt;&lt;/i&gt;
+        &lt;/div&gt;
+        &lt;!-- /ko --&gt;
+        &lt;div id="linkShareTab" class="share-popover-tab"
+             data-bind="click: $root.changeShareType.bind($data, 'link'),
+                        css: $root.shareModalActiveTab() == 'link' ? 'active' : ''"&gt;
+          &lt;i class="icon-link"&gt;&lt;/i&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+
+
+      &lt;div class="alert-shareTopicPopover alert alert-error fade in hide"&gt;
+        &lt;a class="close" data-dismiss="alert" href="#"&gt;&amp;times;&lt;/a&gt;
+      &lt;/div&gt;
+      &lt;div id="alert-success-shareTopicPopover" class="alert alert-success fade in hide"&gt;
+        Successfully shared &lt;span&gt;&lt;/span&gt;
+      &lt;/div&gt;
+      &lt;div class="share-form-con" data-bind="visible: $root.shareModalActiveTab() == 'single'"&gt;
+        &lt;div class="control-group"&gt;
+          &lt;div class="controls row-fluid"&gt;
+            
+            &lt;input type="text" id="inputName" placeholder="Name" class="span12 purpleInput"
+                   data-bind="value: $root.shareTopicName, valueUpdate: 'input', typeahead: $root.allUsersNames,
+                              typeaheadOptions: { 'autoCompleteEmail' : $root.shareTopicEmail, 'autoCompleteName' : $root.shareTopicName, 'valueKey' : 'name' }"&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="control-group"&gt;
+          &lt;div class="controls row-fluid"&gt;
+            &lt;input type="text" id="inputEmail" placeholder="Email" class="span12 purpleInput"
+                   data-bind="value: $root.shareTopicEmail, valueUpdate: 'input', typeahead: $root.allUsersNames,
+                              typeaheadOptions: { 'autoCompleteEmail' : $root.shareTopicEmail, 'autoCompleteName' : $root.shareTopicName, 'valueKey' : 'email' }"&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+        
+        
+          &lt;div class="control-group"&gt;
+              &lt;div class="controls row-fluid"&gt;
+                  &lt;label&gt;
+                      &lt;input type="radio" id="radio_useEmailClientForSharing" name="shareClientGroup" value="true"
+                             data-bind="checked: $root.useEmailClientForSharing"&gt;Share using email client
+                  &lt;/label&gt;
+                  &lt;label&gt;
+                      &lt;input type="radio" id="radio_useEltropyClientForSharing" name="shareClientGroup" value="false"
+                             data-bind="checked: $root.useEmailClientForSharing"&gt;Share using Eltropy mail
+                  &lt;/label&gt;
+              &lt;/div&gt;
+          &lt;/div&gt;
+        
+        
+          &lt;div class="control-group"&gt;
+            &lt;div class="controls row-fluid"&gt;
+              &lt;h4&gt;
+                &lt;input id="passwordProtected" type="checkbox" data-bind="checked:$root.passwordProtectShare" style="margin-top:-2px"&gt;&amp;nbsp;&amp;nbsp;Password protected.
+                &lt;span style="width:20%" data-bind="visible:$root.passwordProtectShare"&gt;Password expires in&lt;/span&gt;
+                &lt;input type="text" data-bind="value: $root.passwordExpiresIn, visible:$root.passwordProtectShare"
+                       class="password-expire-input"&gt;&lt;span data-bind="visible:$root.passwordProtectShare"&gt;days&lt;/span&gt;
+              &lt;/h4&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        
+        &lt;div class="row-fluid"&gt;
+          &lt;button class="btn btn-primary span4 offset4" id="shareTopicBtn" data-bind="click:$root.useEmailClientForSharing()=='true'?$root.shareTopicByEmail:$root.shareTopic"&gt;Share&lt;/button&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class="bulk-share-con" data-bind="visible: $root.shareModalActiveTab() == 'bulk'"&gt;
+        &lt;span class="btn fileinput-button m-top-20"
+              data-bind="css: !$root.shareBulkUploadComplete() ? '' : 'done'"&gt;
+          &lt;i data-bind="css: !$root.shareBulkUploadComplete() ? 'icon-upload' : 'icon-ok'"&gt;&lt;/i&gt;
+          &lt;span data-bind="text: $root.shareBulkUploadText"&gt;Choose File&lt;/span&gt;
+          &lt;!-- &lt;div id="img-upload-progress" class="progress"&gt;
+            &lt;div class="progress-bar progress-bar-success" style="width: 0px;"&gt;&lt;/div&gt;
+          &lt;/div&gt; --&gt;
+          &lt;!-- The file input field used as target for the file upload widget --&gt;
+          &lt;input type="file" id="inputFile"&gt;
+        &lt;/span&gt;
+        &lt;div class="control-group m-top-20"&gt;
+          
+            &lt;div class="controls row-fluid"&gt;
+              &lt;label&gt;
+                &lt;input type="radio" id="radio_groupShareByEmailClient" value="true" name="bulkShareClientGroup"
+                       data-bind="checked: $root.useEmailClientForSharing"&gt;Share using email client
+              &lt;/label&gt;
+              &lt;label&gt;
+                &lt;input type="radio" id="radio_groupShareByEltropyEmail" value="false" name="bulkShareClientGroup"
+                       data-bind="checked: $root.useEmailClientForSharing"&gt;Share using Eltropy mail
+              &lt;/label&gt;
+            &lt;/div&gt;
+          
+        &lt;/div&gt;
+        
+          &lt;div class="control-group"&gt;
+            &lt;div class="controls row-fluid"&gt;
+              &lt;h4&gt;
+                &lt;input id="passwordProtected" type="checkbox" data-bind="checked:$root.passwordProtectShare"
+                       style="margin-top:-2px"&gt;&amp;nbsp;&amp;nbsp;Password protected.
+                &lt;span style="width:20%" data-bind="visible:$root.passwordProtectShare"&gt;Password expires in&lt;/span&gt;
+                &lt;input type="text" data-bind="value: $root.passwordExpiresIn, visible:$root.passwordProtectShare"
+                       class="password-expire-input"&gt;&lt;span data-bind="visible:$root.passwordProtectShare"&gt;days&lt;/span&gt;
+              &lt;/h4&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        
+        &lt;div class="row-fluid"&gt;
+          &lt;button id="groupShareButton" class="btn span4 offset4 share-popover-primary-btn"
+                  data-bind="click: $root.groupShare,
+                             css: { 'disabled' : !$root.shareBulkUploadComplete() }"&gt;Share&lt;/button&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class="bulk-share-con" data-bind="visible: $root.shareModalActiveTab() == 'link'"&gt;
+        &lt;div class="m-top-20"&gt;Generate a unique link to share with others. Use the generate link button and copy the URL.&lt;/div&gt;
+        &lt;div class="control-group m-top-20"&gt;
+          &lt;div class="controls row-fluid"&gt;
+            &lt;input type="text" placeholder="Click the button below to generate link" class="span12 purpleInput share-popver-link" readonly
+                   data-bind="value: $root.shareLink"&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="row-fluid"&gt;
+          &lt;button id="groupShareButton" class="btn span6 offset3 share-popover-primary-btn"
+                  data-bind="click: $root.generateShareLink"&gt;Generate Link&lt;/button&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  </script>
+  <script type="text/html" id="card-template">
+    &lt;div class="span12 card e-topic-card" data-bind="attr : { id: 'plan-' + topicId },
+                                                     css  : $root.setCorner(percentComplete, contentStatus),
+                                                     style: {cursor: isTemp ? 'not-allowed': ''},
+                                                     click: (isTemp || (true &amp;&amp; contentStatus == 'DISABLED'))?'':$root.viewTopicById.bind($data, topicId, name)"&gt;
+      &lt;div class="card-heading simple"&gt;
+        &lt;a data-bind="text: name, style: {cursor: isTemp ? 'not-allowed': ''}"&gt;&lt;/a&gt;
+      &lt;/div&gt;
+      &lt;div class="notification-label"
+           data-bind="text   : nChaptersUpdated + nQuizUpdated,
+                      visible: (contentStatus =='ACTIVE' &amp;&amp; (nChaptersUpdated &gt; 0 || nQuizUpdated &gt; 0)),
+                      attr   : { 'data-original-title' : $root.getTooltipTextForContentUpdated(nChaptersUpdated, nQuizUpdated)}"
+           data-toggle="tooltip"
+           data-container="body"&gt;
+      &lt;/div&gt;
+      
+        &lt;!-- ko if: (!isTemp &amp;&amp; ((contentStatus == 'ACTIVE' || ($root.domainSettings().enableArchiveTopic == false &amp;&amp; contentStatus == 'DISABLED')) &amp;&amp; (editAccess || true || true || false))) || 
+          ($root.domainSettings().enableArchiveTopic &amp;&amp; contentStatus == 'DISABLED' &amp;&amp; (managerAboveAccess || isCurator)) --&gt;
+        &lt;div class="card-dropdown-con"&gt;
+          &lt;div class="metric-con metric-dd-button"&gt;
+            &lt;div data-toggle="dropdown" data-bind="click: $root.toggleDropdown, clickBubble: false"&gt;
+              &lt;span class="icon-caret-down"&gt;&lt;/span&gt;
+            &lt;/div&gt;
+            &lt;ul role="menu" class="dropdown-menu"&gt;
+              &lt;!-- ko if: ( (editAccess &amp;&amp; contentStatus == 'ACTIVE') || ((($root.domainSettings().enableArchiveTopic == false) &amp;&amp; contentStatus == 'DISABLED') &amp;&amp; editAccess) )--&gt;
+                &lt;li&gt;
+                  &lt;a data-bind="click: function(){ return true }, clickBubble: false, attr: { href: '/edit/topic/'+topicId }"&gt;Edit&lt;/a&gt;
+                &lt;/li&gt;
+              &lt;!-- /ko --&gt;
+              &lt;!-- ko if: true &amp;&amp; isShareable &amp;&amp; (contentStatus == 'ACTIVE' || (($root.domainSettings().enableArchiveTopic == false) &amp;&amp; contentStatus == 'DISABLED'))--&gt;
+                &lt;li&gt;
+                  &lt;a class="share-popover-btn" data-bind="popover: {template: 'popoverTemplate', placement: 'bottom', container: '#plan-' + topicId},
+                    click: $root.setShareTopicDetails.bind($data,topicId,name), clickBubble: false, visible: true" data-placement="bottom"&gt;
+                    Share
+                  &lt;/a&gt;
+                &lt;/li&gt;
+              &lt;!-- /ko --&gt;
+              &lt;!-- ko if: false &amp;&amp; (contentStatus == 'ACTIVE' ||($root.domainSettings().enableArchiveTopic == false &amp;&amp; contentStatus == 'DISABLED'))--&gt;
+                &lt;li&gt;
+                  &lt;a data-bind="click: function(){return true}, clickBubble: false, attr: { href: $root.getAnalyticsUrl(topicId) }"&gt;Analytics&lt;/a&gt;
+                &lt;/li&gt;
+              &lt;!-- /ko --&gt;
+              &lt;!-- ko if: ( (copyAccess &amp;&amp; contentStatus == 'ACTIVE') || ((($root.domainSettings().enableArchiveTopic == false) &amp;&amp; contentStatus == 'DISABLED') &amp;&amp; copyAccess) )--&gt;
+              &lt;li&gt;
+                &lt;a data-bind="click: function(data, event) { $root.copyTopic(topicId, $index(), data, event) }, clickBubble: false"&gt;
+                  Copy
+                &lt;/a&gt;
+              &lt;/li&gt;
+              &lt;!-- /ko --&gt;
+              &lt;!-- ko if: ( (contentStatus == 'ACTIVE' &amp;&amp; $root.showTemplateOption) || ((($root.domainSettings().enableArchiveTopic == false) &amp;&amp; contentStatus == 'DISABLED') &amp;&amp; $root.showTemplateOption))--&gt;
+              &lt;li&gt;
+                &lt;a data-bind="click: function(data,event) { $root.editTemplate(topicId, name, data, event) }, clickBubble: false"&gt;
+                  Template
+                &lt;/a&gt;
+              &lt;/li&gt;
+              &lt;!-- /ko --&gt;
+              &lt;!-- ko if: ( $root.domainSettings().enableArchiveTopic &amp;&amp; (managerAboveAccess  || isCurator) )--&gt;
+                &lt;li&gt;
+                  &lt;a data-bind="click: function(data, event) {$root.archiveTopic(data, topicId, name)} ,clickBubble: false, visible: isActive"&gt;Archive&lt;/a&gt;
+
+                  &lt;a data-bind="click: function(data, event) {$root.unArchiveTopic(data, topicId, name)}, clickBubble: false,visible: !isActive"&gt;Restore&lt;/a&gt;
+                &lt;/li&gt;
+              &lt;!-- /ko --&gt;
+            &lt;/ul&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;!-- /ko --&gt;
+      
+      &lt;div class='topic-meta'&gt;
+        &lt;div class='card-curated pull-left' data-bind='visible: $root.domainSettings().enableCuratedBy'&gt;
+          Curated by&lt;br&gt;
+          &lt;span class='curator-name' data-bind="text: curatorFullName"&gt;&lt;/span&gt;
+        &lt;/div&gt;
+        &lt;div class="topic-info pull-right"&gt;
+          &lt;!-- ko if: shareCount != 0 --&gt;
+            &lt;span data-bind="text: 'Shares: ' + shareCount"&gt;&lt;/span&gt;&lt;br&gt;
+            &lt;span data-bind="text: 'Views: '  + viewCount"&gt;&lt;/span&gt;
+          &lt;!-- /ko --&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;!-- ko if: isTemp --&gt;
+      &lt;div class="copy-progress text-center"&gt;
+        Copy in progress
+      &lt;/div&gt;
+      &lt;!-- /ko --&gt;
+      &lt;div class="drag-text hide text-center"&gt;&lt;i class="icon-move"&gt;&lt;/i&gt; DRAG &amp; DROP&lt;/div&gt;
+    &lt;/div&gt;
+  </script>
+  <script type="text/html" id="search-result-template">
+    
+    &lt;!-- ko if: (contentStatus == 'ACTIVE' &amp;&amp; domainSettings.enableArchiveTopic == true) ||
+                (domainSettings.enableArchiveTopic == false) --&gt;
+      &lt;div class="search-result clearfix" data-toggle='tooltip' data-bind="click: $root.loadSearchResult.bind($data)"&gt;
+        &lt;span data-bind="text: displayText"       class="topic-title"&gt;&lt;/span&gt;
+        &lt;span data-bind="text: type"              class="search-result-type"&gt;&lt;/span&gt;
+        &lt;span data-bind="visible: topicName" class="search-result-type"&gt;in&lt;/span&gt;
+        &lt;span data-bind="text: topicName, visible: topicName" class="search-result-type"&gt;&lt;/span&gt;
+        &lt;span data-bind="text: tag, visible: tag" class="search-result-tag"&gt;&lt;/span&gt;
+        &lt;div class="search-text" data-bind="html: highlightText[0]"&gt;&lt;/div&gt;
+      &lt;/div&gt;
+    &lt;!-- /ko --&gt;
+    &lt;!-- ko if: contentStatus == 'DISABLED' &amp;&amp; domainSettings.enableArchiveTopic == true--&gt;
+      &lt;div class="search-result search-result-archived clearfix" data-toggle='tooltip'
+           data-placement="left" data-bind='attr:{ title: $root.getTitleForSearchResult(type, topicName)}' data-container="body"&gt;
+        &lt;span data-bind="text: displayText"       class="topic-title"&gt;&lt;/span&gt;
+        &lt;span data-bind="text: type"              class="search-result-type"&gt;&lt;/span&gt;
+        &lt;span data-bind="visible: topicName" class="search-result-type"&gt;in&lt;/span&gt;
+        &lt;span data-bind="text: topicName, visible: topicName" class="search-result-type"&gt;&lt;/span&gt;
+        &lt;span data-bind="text: tag, visible: tag" class="search-result-tag"&gt;&lt;/span&gt;
+        &lt;span class='tag-archive'&gt;Archived&lt;/span&gt;
+        &lt;div class="search-text" data-bind="html: highlightText[0]"&gt;&lt;/div&gt;
+      &lt;/div&gt;
+    &lt;!-- /ko --&gt;
+  </script>
+  <script type="text/javascript">
+    var sessionUserId         = "1872446";
+    var sessionUserEmail      = "kiran.kumar.sdet@gmail.com";
+    var sessionUserFullName   = "Kiran Kumar";
+    var sessionUserFirstName  = "kiran";
+    var sessionUserLastName   = "kumar";
+    var domainSettings        = {"class":"com.eltropy.model.user.EltropyDomainSettings","id":170777,"advanceUserGroup":false,"allowAssignments":true,"allowBulkSharingOfTopic":true,"allowChapterCreationByEmail":false,"allowChapterUpload":true,"allowCurationFromBox":true,"allowCurationFromGoogleDrive":true,"allowCurationFromOneDrive":true,"allowEditingTagsOnChapterPage":true,"allowOneDriveSync":true,"allowSharingOfTopic":true,"allowZipUpload":true,"bannerBackgroundColor":"#333","bannerBackgroundImage":"https://elt-static.s3.amazonaws.com/images/eltropy-def-banner1.jpg","bannerSideImage":null,"bannerText":"Share. Collaborate. Measure.","bannerTextColor":"#fff","customStyles":null,"dailySiteActivityMailHour":22,"dateCreated":"2014-08-04T21:56:44Z","deleteFromOneDriveOnChapterDelete":true,"elDomain":{"class":"com.eltropy.model.user.EltropyDomain","id":170773},"enableArchiveTopic":true,"enableBoxUpload":false,"enableCachingForAnalyticsPage":false,"enableCollateralViewOnDashboard":true,"enableCuratedBy":true,"enableCustomEmailTemplatesForTopics":true,"enableDailySiteActivityEmail":true,"enableDefaultBccEmailForEmailClient":true,"enableDiscussions":false,"enableDropBoxImport":true,"enableEmailCampaigns":true,"enableEmailNotificationForQuizes":true,"enableEmailTracking":true,"enableHighContrastViewOnTopicPage":false,"enableModuleGroupsOnDashboard":true,"enableModulesTabOnDashboard":true,"enableNewAnalytics":true,"enableNewContentNotification":true,"enableOnNonProdEnvironments":true,"enableOriginalTopicPageStyling":false,"enableRestrictiveSharing":true,"enableSalesTeams":true,"enableSalesforceImports":true,"enableSearchBarOnDashboard":true,"enableSharepointImports":true,"enableSolarDashboard":false,"enableTopicCreationOnDashboard":true,"enableUserLevelTopicEmailTemplate":true,"enableWeeklySiteActivityEmail":true,"extendedCopyAccess":true,"feedbackEmailTo":"web-feedback@eltropy.com","forceLessonSequentialAccess":false,"fromEmailAddress":"Eltropy &lt;no-reply@eltropy.com&gt;","hideChapterNextPreviousButtons":false,"hidePlanSidebar":false,"hideTopicSidebar":false,"isChapterDurationRequired":false,"isSignInRequiredOnTopicPage":true,"lastUpdated":"2016-02-03T07:27:33Z","minimumViewTimeForContent":20,"navBarImage":"","navBarText":"Eltropy Test","newContentMailDay":6,"newContentMailFrequency":"Daily","newContentMailHour":22,"openAdvancedViewInEditChapterModal":false,"passwordProtectContentSharing":true,"requireEmailConfirmation":true,"sendMailOnPlanStarted":true,"shareContentEmailFromEmailClient":false,"showDownloadLinksForChapters":true,"showEltropyBranding":false,"showFeedback":true,"showLastUpdatedOnPlanPage":true,"showLimitedAnalytics":true,"showMediaTags":true,"showShareCountOnDashboard":true,"showSubTopicsExpandedOnTopicPage":false,"showSyncAnalyticsTab":true,"showTopicPageOnShare":true,"showViewOriginalButton":true,"signInButtonPresent":false,"siteActivityEvents":null,"skipEmailCheckForShareUrls":true,"skipTopicPage":true,"uploadPdfToPdfTron":false,"useHttps":true,"useProxy":false,"weeklySiteActivityMailDay":3,"weeklySiteActivityMailHour":22};
+    var isModulesEnabled      = domainSettings.enableModulesTabOnDashboard;
+    var managerAboveAccess       = false;
+    var enableActivityTab        = true;
+    var enableEvaluationTab      = true;
+    var useEmailClientForSharing = "true";
+    var createTopicAccess        = true;
+    var isSunedison              = false;
+
+    if (isSunedison) {
+      useEmailClientForSharing = 'false';
+    }
+
+    
+    
+  </script>
+
+  </div>
+
+  
+  
+
+  
+  
+    
+      <div id="feedbackCon">
+        <div id="feedback-btn">
+          <i class="icon-edit"></i>
+          <div>FEEDBACK</div>
+        </div>
+        <div id="feedback-form" class="span4">
+          <div class="alert alert-success fade in">
+            Your feedback has been successfully submitted.
+          </div>
+          <div class="alert alert-error fade in">
+            There was an error in submitting your feedback, please retry.
+          </div>
+          <form class="eltropy-classic-form">
+            <div class="control-group">
+              <div class="controls row-fluid">
+                <h5>Name *</h5>
+                <input type="text" id="inputName" placeholder="Name" class="span12 purpleInput" value="kiran" />
+              </div>
+            </div>
+            <div class="control-group">
+              <div class="controls row-fluid">
+                <h5>Email ID *</h5>
+                <input type="text" id="inputEmail" placeholder="Email" class="span12 purpleInput" value="kiran.kumar.sdet@gmail.com" />
+              </div>
+            </div>
+            <div class="control-group">
+              <div class="controls row-fluid">
+                <h5>Category</h5>
+                <select id="inputCategory" class="span12">
+                  <option value="Query">Query</option>
+                  <option value="Issue">Issue</option>
+                  <option value="Like">Like</option>
+                  <option value="Suggestion">Suggestion</option>
+                </select>
+              </div>
+            </div>
+            <div class="control-group">
+              <div class="controls row-fluid">
+                <h5>Feedback *</h5>
+                <textarea placeholder="Feedback" class="span12 purpleInput" id="feedbackText"></textarea>
+              </div>
+            </div>
+            <div class="row-fluid feedback-button-con">
+              <div class="btn btn-primary span4 offset2" id="feedback-submit-btn">Submit</div>
+              <div class="btn span4 cancel-btn">Cancel</div>
+            </div>
+          </form>
+        </div>
+      </div>
+        
+  
+
+  
+  <script>
+    if (document.getElementById('iconNavBar')) {
+      document.getElementById('iconNavBar').style.right = document.getElementById("nav-dd-con").offsetWidth+"px";
+    }
+  </script>
+
+  
+  
+  
+  <script type="text/javascript">
+    mixpanel.set_config({ cross_subdomain_cookie: false });
+    mixpanel.register({ "ip-address" : "45.112.138.78" });
+    
+      mixpanel.identify("kiran.kumar.sdet@gmail.com");
+      mixpanel.register({"email":"kiran.kumar.sdet@gmail.com"});
+    
+    
+      mixpanel.track("signed in", {
+        "auth method": ''
+      });
+      mixpanel.people.set({
+        "$email"      : "kiran.kumar.sdet@gmail.com",
+        "$first_name" : "kiran",
+        "domain_role" : "USER"
+      });
+    
+    
+    mixpanel.track_links("#nav-logo", "clicked nav logo");
+    mixpanel.track_links("#nav-dashboard-icon", "clicked nav dashboard");
+    mixpanel.track_links("#nav-analytics-icon", "clicked nav analytics");
+    mixpanel.track_links("#nav-settings-icon", "clicked nav settings");
+  </script>
+
+
+</body></html>
